@@ -180,7 +180,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bae794d1e7b2b42daadf27581d8c7113, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 147557125}
+      addedObject: {fileID: 147557128}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bae794d1e7b2b42daadf27581d8c7113, type: 3}
       insertIndex: -1
       addedObject: {fileID: 147557124}
@@ -222,23 +222,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 147557125}
-        m_TargetAssemblyTypeName: FlightController, Assembly-CSharp
-        m_MethodName: OnThrustChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: fa0c08e4-a587-4743-a161-05b558e33710
-    m_ActionName: Flying/Thrust
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 147557125}
+      - m_Target: {fileID: 147557128}
         m_TargetAssemblyTypeName: FlightController, Assembly-CSharp
         m_MethodName: OnRotation
         m_Mode: 0
@@ -254,9 +238,9 @@ MonoBehaviour:
     m_ActionName: 'Flying/Rotation[/XboxOneGampadMacOSWireless/rightStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 147557125}
+      - m_Target: {fileID: 147557128}
         m_TargetAssemblyTypeName: FlightController, Assembly-CSharp
-        m_MethodName: OnRoll
+        m_MethodName: OnThrustAndRollChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -266,14 +250,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 6586d275-a531-43a7-8d00-2d5e06b2cede
-    m_ActionName: 'Flying/Roll[/XboxOneGampadMacOSWireless/leftStick/x]'
+    m_ActionId: ef0a4361-d7ed-4e61-ac52-9a382b29d07c
+    m_ActionName: Flying/Thurst+Roll
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Flying
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1930592308}
---- !u!114 &147557125
+--- !u!114 &147557128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -9,6 +9,7 @@ public class FlightController : MonoBehaviour
     private float _currentSpeed;
 
     private Vector2 rotationInput;
+    private float speedInput;
     private float rollInput;
 
     void Start()
@@ -42,13 +43,17 @@ public class FlightController : MonoBehaviour
         transform.position += _currentSpeed * Time.deltaTime * transform.forward;
     }
 
-    public void OnThrustChange(InputAction.CallbackContext context)
+    public void OnThrustAndRollChange(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() > 0)
+
+        speedInput = context.ReadValue<Vector2>().y;
+        rollInput = context.ReadValue<Vector2>().x * 4f;
+
+        if (speedInput > 0)
         {
             speedChange = 10.0f;
         }
-        else if (context.ReadValue<float>() < 0)
+        else if (speedInput < 0)
         {
             speedChange = -10.0f;
         }
@@ -61,10 +66,5 @@ public class FlightController : MonoBehaviour
     public void OnRotation(InputAction.CallbackContext context)
     {
         rotationInput = context.ReadValue<Vector2>() * 2f;
-    }
-
-    public void OnRoll(InputAction.CallbackContext context)
-    {
-        rollInput = context.ReadValue<float>() * 4f;
     }
 }

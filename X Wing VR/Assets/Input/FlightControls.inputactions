@@ -6,15 +6,6 @@
             "id": "b79a814c-4806-4606-a854-49ce7782d8bc",
             "actions": [
                 {
-                    "name": "Thrust",
-                    "type": "Value",
-                    "id": "fa0c08e4-a587-4743-a161-05b558e33710",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Pitch+Yaw",
                     "type": "Value",
                     "id": "5ace26a9-f7f4-4370-8861-5627f2148b15",
@@ -24,38 +15,16 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Roll",
+                    "name": "Thurst+Roll",
                     "type": "Value",
-                    "id": "6586d275-a531-43a7-8d00-2d5e06b2cede",
-                    "expectedControlType": "Axis",
+                    "id": "ef0a4361-d7ed-4e61-ac52-9a382b29d07c",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "0ca809a0-9e6a-430a-ad46-1a15c9a8c568",
-                    "path": "<XRController>{LeftHand}/devicePosition/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Thrust",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ae6fee1c-e457-4888-805c-470f8e69c1b2",
-                    "path": "<Gamepad>/leftStick/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Thrust",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "435f5eed-2f36-4916-993d-fd234bf3822d",
@@ -80,23 +49,23 @@
                 },
                 {
                     "name": "",
-                    "id": "657589ec-4abc-461c-8ed7-d6b6b97dc48c",
-                    "path": "<XRController>/devicePosition/x",
+                    "id": "f0378ba8-5489-4ac4-903b-f48632709fba",
+                    "path": "<XRController>{LeftHand}/joystick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Roll",
+                    "action": "Thurst+Roll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "d06b632a-d17f-42c3-9437-e5d7bcccdbf7",
-                    "path": "<Gamepad>/leftStick/x",
+                    "id": "32f3fd42-869d-4972-8cc2-5a0b3c8c1f94",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Roll",
+                    "action": "Thurst+Roll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
