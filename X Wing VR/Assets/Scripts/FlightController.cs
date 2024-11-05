@@ -27,16 +27,12 @@ public class FlightController : MonoBehaviour
             _currentSpeed = _minSpeed;
         }
 
-        Debug.Log("Current speed: " + _currentSpeed);
-
         // Adjust the position of the object based on the speed
         transform.position += transform.forward * _currentSpeed * Time.deltaTime;
     }
 
     public void OnThrustChange(InputAction.CallbackContext context)
     {
-        Debug.Log(context.ReadValue<float>());
-
         if (context.ReadValue<float>() > 0)
         {
             speedChange = 10.0f;
