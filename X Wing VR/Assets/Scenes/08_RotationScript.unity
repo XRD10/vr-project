@@ -180,7 +180,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bae794d1e7b2b42daadf27581d8c7113, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 147557125}
+      addedObject: {fileID: 147557128}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bae794d1e7b2b42daadf27581d8c7113, type: 3}
       insertIndex: -1
       addedObject: {fileID: 147557124}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 147557125}
+      - m_Target: {fileID: 147557128}
         m_TargetAssemblyTypeName: FlightController, Assembly-CSharp
         m_MethodName: OnRotation
         m_Mode: 0
@@ -235,10 +235,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 5ace26a9-f7f4-4370-8861-5627f2148b15
-    m_ActionName: 'Flying/Pitch+Yaw[/XboxOneGampadMacOSWireless/rightStick]'
+    m_ActionName: 'Flying/Rotation[/XboxOneGampadMacOSWireless/rightStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 147557125}
+      - m_Target: {fileID: 147557128}
         m_TargetAssemblyTypeName: FlightController, Assembly-CSharp
         m_MethodName: OnThrustAndRollChange
         m_Mode: 0
@@ -251,13 +251,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: ef0a4361-d7ed-4e61-ac52-9a382b29d07c
-    m_ActionName: 'Flying/Thurst+Roll[/XboxOneGampadMacOSWireless/leftStick]'
+    m_ActionName: Flying/Thurst+Roll
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Flying
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1930592308}
---- !u!114 &147557125
+--- !u!114 &147557128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
