@@ -37,8 +37,6 @@ public class FlightController : MonoBehaviour
         float roll = rollInput * _currentSpeed * Time.deltaTime;
         transform.Rotate(pitch, yaw, -roll);
 
-        Debug.Log("Pitch: " + pitch + " Yaw: " + yaw + " Roll: " + roll);
-
         // Adjust the position of the object based on the speed
         transform.position += _currentSpeed * Time.deltaTime * transform.forward;
     }
