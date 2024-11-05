@@ -1,0 +1,45 @@
+{
+    "name": "FlightControls",
+    "maps": [
+        {
+            "name": "Flying",
+            "id": "b79a814c-4806-4606-a854-49ce7782d8bc",
+            "actions": [
+                {
+                    "name": "Thrust",
+                    "type": "Value",
+                    "id": "fa0c08e4-a587-4743-a161-05b558e33710",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0ca809a0-9e6a-430a-ad46-1a15c9a8c568",
+                    "path": "<XRController>{LeftHand}/devicePosition/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae6fee1c-e457-4888-805c-470f8e69c1b2",
+                    "path": "<Gamepad>/leftStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
