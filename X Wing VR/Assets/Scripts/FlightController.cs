@@ -8,23 +8,21 @@ public class FlightController : MonoBehaviour
     private float speedChange = 0.0f;
     private float _currentSpeed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _currentSpeed = _minSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         _currentSpeed += speedChange * Time.deltaTime;
 
         // Dont go below or above the speed limits
-        if(_currentSpeed > _topSpeed)
+        if (_currentSpeed > _topSpeed)
         {
             _currentSpeed = _topSpeed;
         }
-        else if(_currentSpeed < _minSpeed)
+        else if (_currentSpeed < _minSpeed)
         {
             _currentSpeed = _minSpeed;
         }
