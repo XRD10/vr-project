@@ -19,7 +19,7 @@
                 {
                     "name": "",
                     "id": "0ca809a0-9e6a-430a-ad46-1a15c9a8c568",
-                    "path": "<XRController>{LeftHand}/devicePosition/y",
+                    "path": "<XRController>{LeftHand}/isTracked",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
