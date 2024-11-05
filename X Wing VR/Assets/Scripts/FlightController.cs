@@ -8,6 +8,9 @@ public class FlightController : MonoBehaviour
     private float speedChange = 0.0f;
     private float _currentSpeed;
 
+    private Vector2 rotationInput;
+    private float rollInput;
+
     void Start()
     {
         _currentSpeed = _minSpeed;
@@ -27,8 +30,16 @@ public class FlightController : MonoBehaviour
             _currentSpeed = _minSpeed;
         }
 
+        // Apply roration based on input (pitch and yaw)
+        float pitch = rotationInput.y * _currentSpeed * Time.deltaTime;
+        float yaw = rotationInput.x * _currentSpeed * Time.deltaTime;
+        float roll = rollInput * _currentSpeed * Time.deltaTime;
+        transform.Rotate(pitch, yaw, -roll);
+
+        Debug.Log("Pitch: " + pitch + " Yaw: " + yaw + " Roll: " + roll);
+
         // Adjust the position of the object based on the speed
-        transform.position += transform.forward * _currentSpeed * Time.deltaTime;
+        transform.position += _currentSpeed * Time.deltaTime * transform.forward;
     }
 
     public void OnThrustChange(InputAction.CallbackContext context)
@@ -45,5 +56,15 @@ public class FlightController : MonoBehaviour
         {
             speedChange = 0.0f;
         }
+    }
+
+    public void OnRotation(InputAction.CallbackContext context)
+    {
+        rotationInput = context.ReadValue<Vector2>() * 2f;
+    }
+
+    public void OnRoll(InputAction.CallbackContext context)
+    {
+        rollInput = context.ReadValue<float>() * 4f;
     }
 }
