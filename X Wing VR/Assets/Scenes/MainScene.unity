@@ -213,9 +213,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2946642823309334885, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4597
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946642823309334885, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946642823309334885, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1104
+      objectReference: {fileID: 0}
     - target: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_Name
       value: X-Wing POV
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910499468430478172, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0132
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910499468430478172, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0237
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910499468430478172, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0271
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
