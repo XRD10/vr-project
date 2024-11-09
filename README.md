@@ -1,6 +1,6 @@
 # X-Wing VR
 
-## Read before developing:
+## For developers:
 
 In the **X-Wing POV** prefab there are 2 controllers:
 
