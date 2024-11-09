@@ -4,8 +4,6 @@ using UnityEngine.XR.Content.Interaction;
 //This controller is used to control the flight in the VR environment (by moving the joystick and thrust controllers)
 public class VRFlightController : MonoBehaviour
 {
-    [SerializeField] private XRJoystick joystickHandle;
-    [SerializeField] private XRSlider thrustSlider;
     [Tooltip("Number by which the pitch is multiplied")]
     [SerializeField] private int pitchDetailer = 1;
     [Tooltip("Number by which the roll is multiplied")]

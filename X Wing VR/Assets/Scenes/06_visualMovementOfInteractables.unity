@@ -165,25 +165,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1610949055 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+--- !u!114 &1610949058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6592923276943709466, guid: ca53d27da022d44a483f787c6b920000, type: 3}
   m_PrefabInstance: {fileID: 1876986539}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1610949058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610949055}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39353b452529b41cdba662e7b8f41639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickHandle: {fileID: 0}
-  thrustSlider: {fileID: 0}
 --- !u!1001 &1876986539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,10 +403,7 @@ PrefabInstance:
     - {fileID: 6101486940847296998, guid: ca53d27da022d44a483f787c6b920000, type: 3}
     - {fileID: 6235387145144248166, guid: ca53d27da022d44a483f787c6b920000, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1610949058}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca53d27da022d44a483f787c6b920000, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
