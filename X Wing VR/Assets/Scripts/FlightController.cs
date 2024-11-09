@@ -31,7 +31,7 @@ public class FlightController : MonoBehaviour
             _currentSpeed = _minSpeed;
         }
 
-        // Apply roration based on input (pitch and yaw)
+        // Apply roration based on input (pitch and yaw)ss
         float pitch = rotationInput.y * _currentSpeed * Time.deltaTime;
         float yaw = rotationInput.x * _currentSpeed * Time.deltaTime;
         float roll = rollInput * _currentSpeed * Time.deltaTime;
