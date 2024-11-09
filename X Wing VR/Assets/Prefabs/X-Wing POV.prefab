@@ -1868,8 +1868,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1223522181686267554}
   - component: {fileID: 1492359521135781509}
-  - component: {fileID: 7772792942635041767}
   - component: {fileID: 6592923276943709466}
+  - component: {fileID: 7772792942635041767}
   m_Layer: 0
   m_Name: X-Wing POV
   m_TagString: Untagged
@@ -1908,6 +1908,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117cd0d2de3854f2daf67885d9937dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6592923276943709466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141661086754717786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39353b452529b41cdba662e7b8f41639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchDetailer: 1
+  rollDetailer: 1
 --- !u!114 &7772792942635041767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1970,20 +1984,6 @@ MonoBehaviour:
   m_DefaultActionMap: Flying
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6592923276943709466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3141661086754717786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39353b452529b41cdba662e7b8f41639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pitchDetailer: 1
-  rollDetailer: 1
 --- !u!1 &3272526529466344468
 GameObject:
   m_ObjectHideFlags: 0
