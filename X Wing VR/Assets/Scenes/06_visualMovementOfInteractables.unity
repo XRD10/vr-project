@@ -165,6 +165,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1610949055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+  m_PrefabInstance: {fileID: 1876986539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1610949058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610949055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39353b452529b41cdba662e7b8f41639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystickHandle: {fileID: 0}
+  thrustSlider: {fileID: 0}
 --- !u!1001 &1876986539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,6 +232,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1492359521135781509, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168157423449185705, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168157423449185705, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168157423449185705, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1610949058}
+    - target: {fileID: 2168157423449185705, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168157423449185705, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnThrustChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168157423449185705, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VRFlightController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168157423449185705, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2571349390698398687, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -236,6 +287,66 @@ PrefabInstance:
     - target: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_DeadZoneAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeY.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeY.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1610949058}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeY.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1610949058}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeY.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnJoystickXChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeY.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnJoystickYChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VRFlightController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeY.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VRFlightController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_OnValueChangeY.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6101486940847296998, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_IsActive
@@ -289,6 +400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 8342451683327956412, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_Constraints
+      value: 32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2571349390698398687, guid: ca53d27da022d44a483f787c6b920000, type: 3}
@@ -296,7 +411,10 @@ PrefabInstance:
     - {fileID: 6101486940847296998, guid: ca53d27da022d44a483f787c6b920000, type: 3}
     - {fileID: 6235387145144248166, guid: ca53d27da022d44a483f787c6b920000, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1610949058}
   m_SourcePrefab: {fileID: 100100000, guid: ca53d27da022d44a483f787c6b920000, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

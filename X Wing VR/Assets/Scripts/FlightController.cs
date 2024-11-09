@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//This controller is used to control the flight in the 3D game environment (by either gamepad or vr controllers)
 public class FlightController : MonoBehaviour
 {
     private readonly float _topSpeed = 50.0f;
