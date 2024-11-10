@@ -13,3 +13,9 @@ Has an input on right and left stick of both **Gamepad** and **XR controller**. 
 #### `VRFlightController` (enabled on default):
 
 Tracks the XR controllers as inputs and has the **Direct Interactable** component, meaning you need to be close to the 3D object (interactable) with the controller to be able to grab it and interact with it. Here the movement of the joystick and thrust controllers is translated into the speed and rotation of the ship. 
+
+## Credits / Sources:
+
+#### [Valem Tutorials](https://www.youtube.com/@ValemTutorials):
+
+- Lets make a VR game unity package (`XRJoystick`, `XRSlider`, and hands visuals)
