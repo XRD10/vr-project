@@ -510,6 +510,10 @@ PrefabInstance:
       propertyPath: engineSound
       value: 
       objectReference: {fileID: 801981021}
+    - target: {fileID: 1492359521135781509, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: engineSoundController
+      value: 
+      objectReference: {fileID: 162394766}
     - target: {fileID: 2946642823309334885, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.4597
