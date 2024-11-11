@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedLaser
       objectReference: {fileID: 0}
+    - target: {fileID: 2729248808064080282, guid: 5e67f7baf4c49c442bb838f7a19bf8d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4878720170585680322, guid: 5e67f7baf4c49c442bb838f7a19bf8d5, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
