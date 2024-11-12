@@ -3,141 +3,218 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-
     /// <summary>
     /// FSM States:
-    /// RandomFlight
-    /// ChaseFlight
-    /// Attack?
-    /// Flee?
-    /// Group?
+    /// RandomFlight - Enemy moves randomly.
+    /// ChasePlayer - Enemy chases the player.
+    /// Returning - Enemy returns to spawn location.
+    /// EvadePlayer - Enemy evades the player.
     /// </summary>
     private enum State
     {
         RandomFlight,
-        ChasePlayer
+        ChasePlayer,
+        Returning,
+        EvadePlayer
     }
-    
+
+    [Header("----Current State----")]
+    [SerializeField]
     private State currentState;
 
-    [Header("----Random flight----")]
-    [Tooltip("Add waypoints for random flight here")]
-    public Transform[] waypoints;
-    private Transform currentWaypoint;
-    public float waypointThreshold = 1f;
-    [Tooltip("Speed for random flight")]
-    public float randomFlightSpeed = 5f;
-    public float directionChangeInterval = 30f;
-    private float directionChangeTimer;
-    private Vector3 currentDirection;
+    [Header("----Limit distance----")]
+    [SerializeField]
+    private float maxDistanceFromSpawn;
+    [SerializeField]
+    private float minDistanceFromSpawn;
+    private Vector3 spawnLocation;
 
+    [Header("----Random flight----")]
+    public float directionChangeInterval;
+    private float directionChangeTimer;
+    [SerializeField]
+    private Vector3 currentDirection;
 
     [Header("----ChasePlayer flight----")]
     private Transform playerTransform;
-    [Tooltip("Speed for chasing")]
-    public float chaseSpeed = 8f;
-    [Tooltip("Distance to engage player")]
-    public float detectionRadius = 20f;
+    public float detectionRadius;
+
+    [Header("----EvadePlayer----")]
+    public float evadeSpeed;
+    public float evadeThreshold;
+    public float evadeDistance;
+    public float facingAngle;
+    private bool hasEvaded;
+    private Vector3 evadeDirection;
 
     [Header("----Movement----")]
-    public float maxSpeed = 10f;
-    public float rotationSpeed = 5f;
+    public float maxSpeed;
+    public float minSpeed;
+    [SerializeField]
+    private float currentSpeed;
+    public float rotationSpeed;
+    private Quaternion targetRotation;
+
+    [Header("----Seperation----")]
+    public float separationRadius;
+    public float separationStrength;
+
+    private LayerMask enemyLayerMask;
 
     private Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        spawnLocation = transform.position;
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(player != null)
+        if (player != null)
         {
             playerTransform = player.transform;
         }
         else
-        Debug.Log("Player not found. Check player is tagged as Player");
-
+        {
+            Debug.LogWarning("Player not found. Ensure the player is tagged as 'Player'");
+        }
+        SetRandomSpeed();
         currentState = State.RandomFlight;
-        SelectRandomWaypoint();
 
-        directionChangeTimer = directionChangeInterval;
+        targetRotation = transform.rotation;
+
+        // Set the enemy layer mask to only include the enemy layer
+        enemyLayerMask = LayerMask.GetMask("Enemy");
+
+        // Ensure the enemy GameObjects are on the "Enemy" layer
+        gameObject.layer = LayerMask.NameToLayer("Enemy");
     }
 
     private void Update()
     {
-        switch(currentState)
+        switch (currentState)
         {
             case State.RandomFlight:
                 HandleRandomFlight();
                 break;
-            
             case State.ChasePlayer:
                 HandleChasePlayer();
                 break;
+            case State.Returning:
+                HandleReturning();
+                break;
+            case State.EvadePlayer:
+                HandleEvadePlayer();
+                break;
         }
+    }
 
-        if( rb.linearVelocity.magnitude > maxSpeed)
+    private void FixedUpdate()
+    {
+        // Limit linear velocity
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
+
+        // Check if the enemy is too far from the spawn point
+        if (Vector3.Distance(transform.position, spawnLocation) > maxDistanceFromSpawn)
+        {
+            SwitchState(State.Returning);
+        }
+
+        ApplySeparation();
+
+        RotateTowardsTarget();
+
+        MoveForward();
+
     }
 
-    /*private void HandleRandomFlight()
+    private void MoveForward()
     {
+        rb.linearVelocity = transform.forward * currentSpeed;
+    }
 
-        Vector3 direction = (currentWaypoint.position - transform.position).normalized;
-        Vector3 expectedVelocity = direction * randomFlightSpeed;
+    private void RotateTowardsTarget()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+    }
+    private void SetRandomSpeed()
+    {
+        currentSpeed = Random.Range(minSpeed, maxSpeed);
+    }
 
-        rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, expectedVelocity, Time.fixedDeltaTime * 2f);
+    private void ApplySeparation()
+    {
+        Collider[] nearbyEnemies = Physics.OverlapSphere(transform.position, separationRadius, enemyLayerMask);
+        Vector3 separationForce = Vector3.zero;
 
-        if(rb.linearVelocity != Vector3.zero)
+        foreach (Collider enemyCollider in nearbyEnemies)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(rb.linearVelocity);
-            playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
-        }
-
-        if(Vector3.Distance(transform.position, currentWaypoint.position) < waypointThreshold)
-        {
-            SelectRandomWaypoint();
-        }
-
-        changeDirectionTimer -= Time.fixedDeltaTime;
-        if (changeDirectionTimer <= 0f)
-        {
-            SelectRandomWaypoint();
-            changeDirectionTimer = changeDirectionInterval;
-        }
-
-        // Check for player detection
-        if (playerTransform != null)
-        {
-            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-            if (distanceToPlayer <= detectionRadius)
+            if (enemyCollider.gameObject != this.gameObject)
             {
-                currentState = State.ChasePlayer;
+                Vector3 toOther = transform.position - enemyCollider.transform.position;
+                float distance = toOther.magnitude;
+
+                if (distance > 0)
+                {
+                    // Calculate repulsion strength inversely proportional to distance
+                    float strength = separationStrength / distance;
+                    separationForce += toOther.normalized * strength;
+                }
             }
         }
-    }*/
+
+        if (separationForce != Vector3.zero)
+        {
+            Quaternion separationRotation = Quaternion.LookRotation(separationForce.normalized);
+            targetRotation = Quaternion.Slerp(targetRotation, separationRotation, rotationSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+
+
+    private void HandleReturning()
+    {
+        
+        Vector3 direction = (spawnLocation - transform.position).normalized;
+
+        targetRotation = Quaternion.LookRotation(direction);
+
+        // Smooth rotation using angular velocity
+        RotateTowards(direction);
+
+        // Switch to random flight when close to the spawn point
+        if (Vector3.Distance(transform.position, spawnLocation) < minDistanceFromSpawn)
+        {
+            SetRandomSpeed();
+            SwitchState(State.RandomFlight);
+        }
+
+        if (Vector3.Distance(transform.position, playerTransform.position) < detectionRadius)
+        {
+            SetRandomSpeed();
+            SwitchState(State.ChasePlayer);
+        }
+    }
 
     private void HandleRandomFlight()
     {
-        // Apply current direction
-        rb.linearVelocity = currentDirection * randomFlightSpeed;
+        rb.linearVelocity = currentDirection * currentSpeed;
 
         // Timer for changing direction
-        directionChangeTimer -= Time.fixedDeltaTime;
+        directionChangeTimer -= Time.deltaTime;
         if (directionChangeTimer <= 0f)
         {
+            SetRandomSpeed();
             currentDirection = GetRandomDirection();
             directionChangeTimer = directionChangeInterval;
+
+            targetRotation = Quaternion.LookRotation(currentDirection);
         }
 
         // Smooth rotation towards movement direction
-        if (rb.linearVelocity != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(rb.linearVelocity);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 2f);
-        }
+        RotateTowards(rb.linearVelocity);
 
         // Check for player detection
         if (playerTransform != null)
@@ -145,50 +222,10 @@ public class EnemyMovement : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if (distanceToPlayer <= detectionRadius)
             {
+                SetRandomSpeed();
                 SwitchState(State.ChasePlayer);
             }
         }
-    }
-
-    private void HandleChasePlayer()
-    {
-        if (playerTransform == null)
-            return;
-
-        // Calculate direction towards the player
-        Vector3 direction = (playerTransform.position - transform.position).normalized;
-        Vector3 desiredVelocity = direction * chaseSpeed;
-
-        // Smoothly interpolate current velocity towards desired velocity
-        rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, desiredVelocity, Time.fixedDeltaTime * 2f);
-
-        // Rotate towards movement direction smoothly
-        if (rb.linearVelocity != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(rb.linearVelocity);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
-        }
-
-        // Check if player is out of detection radius
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-        if (distanceToPlayer > detectionRadius)
-        {
-            SwitchState(State.RandomFlight);
-            SelectRandomWaypoint();
-        }
-    }
-
-    private void SwitchState(State state)
-    {
-        currentState = state;
-    }
-    private void SelectRandomWaypoint()
-    {
-        if (waypoints.Length == 0)
-            return;
-
-        int index = Random.Range(0, waypoints.Length);
-        currentWaypoint = waypoints[index];
     }
 
     private Vector3 GetRandomDirection()
@@ -198,21 +235,143 @@ public class EnemyMovement : MonoBehaviour
         return randomDir.normalized;
     }
 
+    private void HandleChasePlayer()
+    {
+        if (playerTransform == null) return;
+
+        Vector3 direction = (playerTransform.position - transform.position).normalized;
+        targetRotation = Quaternion.LookRotation(direction);
+
+
+        // Check if player is out of detection radius
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer > detectionRadius * 3)
+        {
+            SetRandomSpeed();
+            SwitchState(State.RandomFlight);
+        }
+
+        // Check if player is too close
+        if (distanceToPlayer <= evadeThreshold && IsFacingPlayer())
+        {
+            SwitchState(State.EvadePlayer);
+        }
+    }
+
+    private void HandleEvadePlayer()
+    {
+        if (playerTransform == null) return;
+
+        if (!hasEvaded)
+        {
+            evadeDirection = GetEvadeDirection();
+            hasEvaded = true;
+        }
+
+        targetRotation = Quaternion.LookRotation(evadeDirection);
+
+        // Smooth rotation away from player
+        RotateTowards(evadeDirection);
+
+        // Switch back to ChasePlayer if far enough from the player
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer > evadeDistance)
+        {
+            SetRandomSpeed();
+            hasEvaded = false;
+            SwitchState(State.ChasePlayer);
+        }
+    }
+
+    private Vector3 GetEvadeDirection()
+    {
+        Vector3 toPlayer = (playerTransform.position - transform.position).normalized;
+
+        Vector3 randomVector = Random.onUnitSphere;
+        while (Mathf.Abs(Vector3.Dot(randomVector, toPlayer)) > 0.9f)
+        {
+            randomVector = Random.onUnitSphere;
+        }
+
+        Vector3 perpendicular = Vector3.Cross(toPlayer, randomVector).normalized;
+
+        // Combine the vectors to get an evade direction in 3D space
+        float randomFactor = Random.Range(0.4f, 1.0f);
+        Vector3 evadeDir = (toPlayer + perpendicular * randomFactor).normalized;
+
+        return evadeDir;
+    }
+
+    private bool IsFacingPlayer()
+    {
+        Vector3 toPlayer = (playerTransform.position - transform.position).normalized;
+        float angleToPlayer = Vector3.Angle(transform.forward, toPlayer);
+        return angleToPlayer < facingAngle;
+    }
+
+    private void RotateTowards(Vector3 direction)
+    {
+        if (direction == Vector3.zero) return;
+
+        // Calculate the target rotation based on the desired direction
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        // Smoothly interpolate towards the target rotation
+        Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+
+        // Apply the rotation using MoveRotation
+        rb.MoveRotation(newRotation);
+    }
+
+    private void SwitchState(State newState)
+    {
+        currentState = newState;
+
+        if (newState != State.EvadePlayer)
+        {
+            hasEvaded = false;
+        }
+
+        // Set appropriate target rotation when switching states
+        switch (newState)
+        {
+            case State.RandomFlight:
+                currentDirection = GetRandomDirection();
+                targetRotation = Quaternion.LookRotation(currentDirection);
+                break;
+            case State.ChasePlayer:
+                if (playerTransform != null)
+                {
+                    Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+                    targetRotation = Quaternion.LookRotation(directionToPlayer);
+                }
+                break;
+            case State.Returning:
+                Vector3 directionToSpawn = (spawnLocation - transform.position).normalized;
+                targetRotation = Quaternion.LookRotation(directionToSpawn);
+                break;
+            case State.EvadePlayer:
+                // Evade direction is set in HandleEvadePlayer
+                break;
+        }
+    }
+
     // Optional: Visualize detection radius in Scene view
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(spawnLocation, maxDistanceFromSpawn);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, evadeThreshold);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Handle collision with player
-            // Apply damage, effects, etc.
-
-            // Return to pool instead of destroying
+            // Handle collision with player, apply damage or other effects
             EnemyPool.Instance.ReturnEnemy(gameObject);
         }
     }

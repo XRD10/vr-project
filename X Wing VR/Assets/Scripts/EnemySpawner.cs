@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public float spawnInterval = 50f;
+    public float spawnInterval;
 
     private Coroutine spawnCoroutine;
 
@@ -43,6 +43,22 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
+        else if (spawnPoints.Length == 1)
+        {
+            int index = Random.Range(0, spawnPoints.Length);
+            GameObject enemy = EnemyPool.Instance.GetEnemy();
+            if (enemy != null)
+            {
+                enemy.transform.position = spawnPoints[index].position;
+                enemy.transform.rotation = spawnPoints[index].rotation;
+            }
+            else
+            {
+                Debug.Log("Spawning stopped");
+                StopSpawning();
+            }
+        }
+        else { 
         int index = Random.Range(0, spawnPoints.Length);
         GameObject enemy = EnemyPool.Instance.GetEnemy();
         if (enemy != null)
@@ -54,6 +70,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log("Spawning stopped");
             StopSpawning();
+        }
         }
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9067531388804198862}
   - component: {fileID: 8053471740905143340}
   - component: {fileID: 6551340095693749513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TIE Interceptor 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &6551340095693749513
@@ -158,20 +158,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1360daab021f34f88249ee7038fe19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  waypointThreshold: 1
-  randomFlightSpeed: 100
+  currentState: 0
+  maxDistanceFromSpawn: 3000
+  minDistanceFromSpawn: 20
   directionChangeInterval: 30
-  chaseSpeed: 8
-  detectionRadius: 100
-  maxSpeed: 10
-  rotationSpeed: 5
+  currentDirection: {x: 0, y: 0, z: 0}
+  detectionRadius: 250
+  evadeSpeed: 60
+  evadeThreshold: 60
+  evadeDistance: 250
+  facingAngle: 30
+  maxSpeed: 70
+  minSpeed: 40
+  currentSpeed: 0
+  rotationSpeed: 1
+  separationRadius: 40
+  separationStrength: 20
 --- !u!1 &7751121408577379766
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +185,7 @@ GameObject:
   - component: {fileID: 8851320700146187089}
   - component: {fileID: 2808751822832522301}
   - component: {fileID: 4272864793811087654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
