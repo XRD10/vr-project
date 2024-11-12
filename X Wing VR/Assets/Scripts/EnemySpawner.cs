@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnEnemies());
+       spawnCoroutine = StartCoroutine(SpawnEnemies());
     }
 
     private IEnumerator SpawnEnemies()
@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 Debug.Log("No enemies left");
+                StopSpawning();
             }
             yield return new WaitForSeconds(spawnInterval);
         }
