@@ -4,7 +4,6 @@ using UnityEngine;
 public class AsteroidManager : MonoBehaviour
 {
     [SerializeField] private GameObject asteroid;
-    [SerializeField] private GameObject rocket;
     [SerializeField] private float spawnInterval = 5f;
     private int asteroidsPerSpawn = 1;
 

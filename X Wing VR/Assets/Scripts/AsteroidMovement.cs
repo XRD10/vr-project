@@ -23,7 +23,7 @@ public class AsteroidMovement : MonoBehaviour
             Debug.LogWarning("No X-Wing GameObject found with tag 'X-Wing'");
         }
 
-        StartCoroutine(DestroyAsteroidAfterTime(70f));
+        StartCoroutine(DestroyAsteroidAfterTime(40f));
     }
 
     void Update()
