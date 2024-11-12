@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Anchor
+  - Enemy
+  - X-Wing
+  - AsteroidSpawner
   layers:
   - Default
   - TransparentFX
