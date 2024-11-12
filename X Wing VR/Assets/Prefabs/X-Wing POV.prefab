@@ -6012,7 +6012,11 @@ PrefabInstance:
       value: XR Origin (XR Rig)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7242892566384033864, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+    - {fileID: 1294407658828487183, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+    - {fileID: 4482433666644561137, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+    - {fileID: 1204268256624840122, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
