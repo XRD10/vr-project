@@ -46,7 +46,5 @@ public class AsteroidManager : MonoBehaviour
 
             Instantiate(asteroid, randomPosition, Quaternion.identity);
         }
-
-        Debug.Log("Spawn end");
     }
 }
