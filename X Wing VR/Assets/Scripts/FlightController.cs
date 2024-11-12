@@ -13,7 +13,7 @@ public class FlightController : MonoBehaviour
 	private float rollInput;
 
 	[SerializeField]
-	private EngineSoundController engineSoundController;
+	private AudioController audioController;
 
 	void Start()
 	{
@@ -43,9 +43,9 @@ public class FlightController : MonoBehaviour
 		// Adjust the position of the object based on the speed
 		transform.position += _currentSpeed * Time.deltaTime * transform.forward;
 
-		if (engineSoundController != null)
+		if (audioController != null)
 		{
-			engineSoundController.UpdateEngineSound(_currentSpeed, _minSpeed, _topSpeed);
+			audioController.UpdateEngineSound(_currentSpeed, _minSpeed, _topSpeed);
 		}
 	}
 
