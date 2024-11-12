@@ -129,6 +129,9 @@ namespace UnityEngine.XR.Content.Interaction
         /// </summary>
         public ValueChangeEvent onValueChangeY => m_OnValueChangeY;
 
+        [SerializeField] private GameObject rightHand;
+        [SerializeField] private GameObject leftHand;
+
         void Start()
         {
             if (m_RecenterOnRelease)
@@ -152,6 +155,16 @@ namespace UnityEngine.XR.Content.Interaction
         private void StartGrab(SelectEnterEventArgs args)
         {
             m_Interactor = args.interactorObject;
+
+
+            if (m_Interactor.ToString().StartsWith("Right"))
+            {
+                rightHand.SetActive(false);
+            }
+            else
+            {
+                leftHand.SetActive(false);
+            }
         }
 
         private void EndGrab(SelectExitEventArgs arts)
@@ -162,6 +175,15 @@ namespace UnityEngine.XR.Content.Interaction
             {
                 SetHandleAngle(Vector2.zero);
                 SetValue(Vector2.zero);
+            }
+
+            if (m_Interactor.ToString().StartsWith("Right"))
+            {
+                rightHand.SetActive(true);
+            }
+            else
+            {
+                leftHand.SetActive(true);
             }
 
             m_Interactor = null;
