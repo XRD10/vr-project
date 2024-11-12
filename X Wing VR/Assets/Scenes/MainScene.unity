@@ -256,6 +256,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: m_MaxAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314245635683615818, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_DeadZoneAngle
       value: 1
       objectReference: {fileID: 0}
