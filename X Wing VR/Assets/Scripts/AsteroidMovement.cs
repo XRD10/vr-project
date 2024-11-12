@@ -39,6 +39,5 @@ public class AsteroidMovement : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         Destroy(gameObject);
-        Debug.Log("Asteroid destroyed after 30 seconds");
     }
 }

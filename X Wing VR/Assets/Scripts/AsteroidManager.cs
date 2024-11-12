@@ -12,9 +12,6 @@ public class AsteroidManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start");
-
-
         StartCoroutine(SpawnAsteroidsRoutine());
     }
 
@@ -35,7 +32,6 @@ public class AsteroidManager : MonoBehaviour
             Debug.LogError("BoxCollider not found on the GameObject.");
             return;
         }
-        Debug.Log("Spawn start");
 
         Vector3 spawnAreaSize = boxCollider.size;
         Vector3 spawnAreaCenter = boxCollider.center;
