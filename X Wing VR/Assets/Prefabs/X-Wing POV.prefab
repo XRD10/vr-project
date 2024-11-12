@@ -6288,6 +6288,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1325699294431641179, guid: 2d81cdcb563304e5ca15fc5609ce57b8, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 5916979876685864231}
+    - target: {fileID: 1325699294431641179, guid: 2d81cdcb563304e5ca15fc5609ce57b8, type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 5614836161621751226}
+    - target: {fileID: 1325699294431641179, guid: 2d81cdcb563304e5ca15fc5609ce57b8, type: 3}
       propertyPath: m_OnValueChangeX.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6592923276943709466}
@@ -6373,5 +6381,15 @@ PrefabInstance:
 --- !u!4 &4463717462780226923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6247374676090438152, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+  m_PrefabInstance: {fileID: 7728578604595769187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5614836161621751226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2786192111012551385, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+  m_PrefabInstance: {fileID: 7728578604595769187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5916979876685864231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4133240758362944068, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
   m_PrefabInstance: {fileID: 7728578604595769187}
   m_PrefabAsset: {fileID: 0}
