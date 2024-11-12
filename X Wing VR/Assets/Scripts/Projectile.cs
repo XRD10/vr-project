@@ -11,7 +11,6 @@ public class Projectile : MonoBehaviour
 
     public int timeToLive = 3;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         direction = (targetPosition - transform.position).normalized;
@@ -23,7 +22,6 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, timeToLive);
     }
 
-    // Update is called once per frame
     void Update()
     {
         float moveStep = speed * Time.deltaTime;

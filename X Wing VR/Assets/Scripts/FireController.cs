@@ -84,10 +84,8 @@ public class FireController : MonoBehaviour
 
         while (isFiring)
         {
-            // Fire the current laser
             FireSingleLaser(laserOrigins[currentLaserIndex]);
 
-            // Move to the next laser index
             currentLaserIndex = (currentLaserIndex + 1) % laserOrigins.Length;
 
             // Wait for the specified time before firing the next laser
@@ -95,14 +93,13 @@ public class FireController : MonoBehaviour
             while (elapsedTime < timeBetweenShots)
             {
                 if (!isFiring)
-                    yield break; // Exit if firing has been canceled
+                    yield break;
 
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
         }
     }
-
 
     private void FireSingleLaser(Transform origin)
     {
