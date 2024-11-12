@@ -260,13 +260,8 @@ namespace UnityEngine.XR.Content.Interaction
         {
             if (m_Handle == null)
                 return;
-
-            var xComp = Mathf.Tan(angles.x * Mathf.Deg2Rad);
-            var zComp = Mathf.Tan(angles.y * Mathf.Deg2Rad);
-            var largerComp = Mathf.Max(Mathf.Abs(xComp), Mathf.Abs(zComp));
-            var yComp = Mathf.Sqrt(1.0f - largerComp * largerComp);
-
-            m_Handle.up = (transform.up * yComp) + (transform.right * xComp) + (transform.forward * zComp);
+            
+            m_Handle.localRotation = Quaternion.Euler(angles.y, 0.0f, -angles.x);
         }
 
         void OnDrawGizmosSelected()
