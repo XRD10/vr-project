@@ -119,75 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &170619831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 170619832}
-  - component: {fileID: 170619834}
-  - component: {fileID: 170619833}
-  m_Layer: 0
-  m_Name: AsteroidsSpawner
-  m_TagString: AsteroidSpawner
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &170619832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170619831}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41000366, y: 0.45143986, z: 58.1}
-  m_LocalScale: {x: 28.09, y: 1, z: 10.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 841619747}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &170619833
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170619831}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &170619834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170619831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 855d37afb354447e8acd0c024ddac502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  asteroid: {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
-  rocket: {fileID: 804845827}
-  spawnInterval: 10
 --- !u!1 &251279471
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,9 +571,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1223522181686267554, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1080361353}
-    - targetCorrespondingSourceObject: {fileID: 1223522181686267554, guid: ca53d27da022d44a483f787c6b920000, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 170619832}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       insertIndex: -1
