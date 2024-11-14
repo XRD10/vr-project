@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Anchor
   - Enemy
-  - X-Wing
-  - AsteroidSpawner
+  - Anchor
+  - HomeBase
+  - PatrolPoints
   layers:
   - Default
   - TransparentFX
@@ -15,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
