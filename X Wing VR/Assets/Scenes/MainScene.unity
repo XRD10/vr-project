@@ -632,6 +632,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 674750802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1150757266
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 302300125043196121, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643088389118214914, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_Name
+      value: StarDestroyer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
 --- !u!1 &1345218187
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,3 +871,4 @@ SceneRoots:
   - {fileID: 1477910250}
   - {fileID: 841619745}
   - {fileID: 674750802}
+  - {fileID: 1150757266}
