@@ -11,6 +11,7 @@ public class FireController : MonoBehaviour
     public int damage;
     [SerializeField]
     GameObject laserPrefab;
+    public AudioSource laserAudioSource;
 
     
     [Header("----Meta----")]
@@ -103,9 +104,11 @@ public class FireController : MonoBehaviour
 
     private void FireSingleLaser(Transform origin)
     {
+        
         Vector3 direction = (targetPoint.position - origin.position).normalized;
 
         GameObject laser = Instantiate(laserPrefab, origin.position, Quaternion.LookRotation(direction));
+        laserAudioSource.Play();
         Projectile projectile = laser.GetComponent<Projectile>();
         projectile.speed = laserSpeed;
         projectile.damage = damage; //To be added
