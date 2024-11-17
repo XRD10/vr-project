@@ -372,7 +372,8 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Handle collision with player, apply damage or other effects
-            EnemyPool.Instance.ReturnEnemy(gameObject);
+            EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.Die();
         }
     }
 

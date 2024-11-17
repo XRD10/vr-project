@@ -13,6 +13,14 @@ public class EnemySpawner : MonoBehaviour
        spawnCoroutine = StartCoroutine(SpawnEnemies());
     }
 
+
+    private void Update()
+    {
+        if (EnemyPool.Instance.AvailableEnemies > 5)
+        {
+            ResumeSpawning();
+        }
+    }
     private IEnumerator SpawnEnemies()
     {
         while (true)
@@ -44,21 +52,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        else if (spawnPoints.Length == 1)
-        {
-            int index = Random.Range(0, spawnPoints.Length);
-            GameObject enemy = EnemyPool.Instance.GetEnemy();
-            if (enemy != null)
-            {
-                enemy.transform.position = spawnPoints[index].position;
-                enemy.transform.rotation = spawnPoints[index].rotation;
-            }
-            else
-            {
-                Debug.Log("Spawning stopped");
-                StopSpawning();
-            }
-        }
+        
         else { 
         int index = Random.Range(0, spawnPoints.Length);
         GameObject enemy = EnemyPool.Instance.GetEnemy();

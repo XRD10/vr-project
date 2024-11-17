@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed;
+    [SerializeField]
     public int damage;
 
     public Vector3 targetPosition;
@@ -13,13 +14,12 @@ public class Projectile : MonoBehaviour
     
     void Start()
     {
-        damage = 1;
         direction = (targetPosition - transform.position).normalized;
         if( direction != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(direction);
         }
-
+        damage = 1;
         Destroy(gameObject, timeToLive);
     }
 

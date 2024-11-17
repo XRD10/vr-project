@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -5,7 +6,9 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     [SerializeField]
-    private Animation explode;
+    private GameObject explosionPrefab;
+
+    public event Action<GameObject> OnEnemyDeath;
 
     private void Start()
     {
@@ -14,9 +17,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        Debug.Log("Current Health = " + currentHealth);
 
+        currentHealth -= damage;
         if (currentHealth <= 0)
         {
        
@@ -24,10 +26,14 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Reset()
+    {
+        currentHealth = maxHealth;
+    }
+    public void Die()
     {
         Debug.Log("Boom");
-        //explode.Play();
-        Destroy(gameObject);
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        OnEnemyDeath?.Invoke(gameObject);
     }
 }
