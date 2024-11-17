@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     
     void Start()
     {
+        damage = 1;
         direction = (targetPosition - transform.position).normalized;
         if( direction != Vector3.zero)
         {
@@ -33,5 +34,19 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy")) {
+            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(damage);
+            Destroy(gameObject);
+        } 
+        
+        else if(other.CompareTag("Meteorite"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

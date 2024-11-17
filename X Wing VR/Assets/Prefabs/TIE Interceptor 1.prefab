@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9067531388804198862}
   - component: {fileID: 8053471740905143340}
   - component: {fileID: 6551340095693749513}
+  - component: {fileID: 8492617743990741373}
   m_Layer: 6
   m_Name: TIE Interceptor 1
   m_TagString: Enemy
@@ -174,6 +175,21 @@ MonoBehaviour:
   rotationSpeed: 1
   separationRadius: 40
   separationStrength: 20
+--- !u!114 &8492617743990741373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432260619671924310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9ebe5bb4c53b2489611dd3c48c5bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+  explode: {fileID: 0}
 --- !u!1 &7751121408577379766
 GameObject:
   m_ObjectHideFlags: 0
