@@ -8,6 +8,7 @@ TagManager:
   - Anchor
   - HomeBase
   - PatrolPoints
+  - Asteroid
   layers:
   - Default
   - TransparentFX

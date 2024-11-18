@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(spawnInterval);
             if (EnemyPool.Instance == null)
             {
                 Debug.Log("EnemyPool instance not found");
@@ -33,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (EnemyPool.Instance.AvailableEnemies > 0)
             {
+                
                 SpawnEnemy();
             }
             else
@@ -40,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log("No enemies left");
                 StopSpawning();
             }
-            yield return new WaitForSeconds(spawnInterval);
+            
         }
     }
 
@@ -50,6 +52,20 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log("No spawn points assigned");
             return;
+        }
+
+        else if(spawnPoints.Length == 1)
+        {
+            
+            GameObject enemy = EnemyPool.Instance.GetEnemy();
+            if(enemy != null) { 
+            enemy.transform.position = spawnPoints[0].transform.position;
+            enemy.transform.rotation = spawnPoints[0].transform.rotation;
+            }
+            else {
+                Debug.Log("Spawning stopped");
+                StopSpawning();
+            }
         }
 
         

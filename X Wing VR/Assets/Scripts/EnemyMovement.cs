@@ -63,6 +63,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Rigidbody rb;
 
+    private EnemyFireController enemyFireController;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -77,6 +79,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.LogWarning("Player not found. Ensure the player is tagged as 'Player'");
         }
+
         SetRandomSpeed();
         currentState = State.RandomFlight;
 
@@ -87,6 +90,8 @@ public class EnemyMovement : MonoBehaviour
 
         // Ensure the enemy GameObjects are on the "Enemy" layer
         gameObject.layer = LayerMask.NameToLayer("Enemy");
+
+        enemyFireController = GetComponent<EnemyFireController>();
     }
 
     private void Update()
@@ -242,9 +247,10 @@ public class EnemyMovement : MonoBehaviour
         Vector3 direction = (playerTransform.position - transform.position).normalized;
         targetRotation = Quaternion.LookRotation(direction);
 
-
+        
         // Check if player is out of detection radius
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
         if (distanceToPlayer > detectionRadius * 3)
         {
             SetRandomSpeed();
@@ -252,9 +258,13 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Check if player is too close
-        if (distanceToPlayer <= evadeThreshold && IsFacingPlayer())
+        else if (distanceToPlayer <= evadeThreshold && IsFacingPlayer())
         {
             SwitchState(State.EvadePlayer);
+        }
+        else if (distanceToPlayer <= detectionRadius)
+        {
+            enemyFireController.StartFiring();
         }
     }
 
@@ -332,6 +342,10 @@ public class EnemyMovement : MonoBehaviour
             hasEvaded = false;
         }
 
+        if (newState != State.ChasePlayer)
+        {
+            enemyFireController.StopFiring();
+        }
         // Set appropriate target rotation when switching states
         switch (newState)
         {

@@ -108,7 +108,7 @@ public class FireController : MonoBehaviour
         GameObject laser = Instantiate(laserPrefab, origin.position, Quaternion.LookRotation(direction));
         Projectile projectile = laser.GetComponent<Projectile>();
         projectile.speed = laserSpeed;
-        projectile.damage = damage; //To be added
+        projectile.damage = damage; 
         projectile.targetPosition = targetPoint.position;
     }
 

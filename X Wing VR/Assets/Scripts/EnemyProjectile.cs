@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
     public float speed;
     [SerializeField]
@@ -38,18 +38,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy")) {
-            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(damage);
-            Destroy(gameObject);
-        } 
 
-        else if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Implement player health");
+            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damage);
+            Destroy(gameObject);
         }
         
-        else if(other.CompareTag("Asteroid"))
+        if(other.CompareTag("Asteroid"))
         {
             Destroy(gameObject);
         }
