@@ -694,7 +694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9096470252362190560
@@ -1977,6 +1977,7 @@ GameObject:
   - component: {fileID: 6592923276943709466}
   - component: {fileID: 7772792942635041767}
   - component: {fileID: 3564118839326668211}
+  - component: {fileID: 8602226164378195766}
   m_Layer: 0
   m_Name: X-Wing POV
   m_TagString: Player
@@ -2127,6 +2128,27 @@ MonoBehaviour:
   - {fileID: 6288863347724220807}
   - {fileID: 1726948730968065664}
   targetPoint: {fileID: 2723496860375224841}
+--- !u!65 &8602226164378195766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141661086754717786}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.038681, y: 3.3863788, z: 13.610825}
+  m_Center: {x: 0.2866745, y: -0.1371494, z: -0.35404015}
 --- !u!1 &3272526529466344468
 GameObject:
   m_ObjectHideFlags: 0
@@ -6155,8 +6177,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4478939578395768617}
   - component: {fileID: 7662479097523188855}
-  - component: {fileID: 2254993967812628625}
-  - component: {fileID: 8342541164250993226}
   m_Layer: 0
   m_Name: Sketchfab_model
   m_TagString: Player
@@ -6195,55 +6215,6 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   spawnLocation: {x: 0, y: 0, z: 0}
---- !u!54 &2254993967812628625
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8548388402557569899}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &8342541164250993226
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8548388402557569899}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8968027359266226041
 GameObject:
   m_ObjectHideFlags: 0

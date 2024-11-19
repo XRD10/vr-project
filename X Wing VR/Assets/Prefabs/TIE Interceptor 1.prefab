@@ -164,15 +164,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   maxDistanceFromSpawn: 1000
-  minDistanceFromSpawn: 20
+  minDistanceFromSpawn: 50
   directionChangeInterval: 30
   currentDirection: {x: 0, y: 0, z: 0}
-  detectionRadius: 250
+  detectionRadius: 400
   evadeSpeed: 60
   evadeThreshold: 60
   evadeDistance: 250
   facingAngle: 30
-  maxSpeed: 70
+  maxSpeed: 50
   minSpeed: 40
   currentSpeed: 0
   rotationSpeed: 1

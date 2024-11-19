@@ -6,12 +6,13 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
-    public Vector3 spawnLocation;
+    public Transform spawnLocation;
 
     private void Start()
     {
         currentHealth = maxHealth;
-        spawnLocation = transform.position;
+        spawnLocation = transform;
+        
     }
 
     public void TakeDamage(int damage)
@@ -29,7 +30,8 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator Reset()
     {
         yield return new WaitForSeconds(3);
-        gameObject.transform.position = spawnLocation;
+        gameObject.transform.position = spawnLocation.position;
+        gameObject.transform.rotation = spawnLocation.rotation;
         currentHealth = maxHealth;
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements;
 
 public class EnemyFireController : MonoBehaviour
 {
@@ -75,7 +76,7 @@ public class EnemyFireController : MonoBehaviour
         }
     }
 
-    private Vector3 CalculateInaccuracy()
+   private Vector3 CalculateInaccuracy()
     {
 
         // Get direction to player
@@ -96,12 +97,17 @@ public class EnemyFireController : MonoBehaviour
         return targetPosition;
     }
 
+
+
     private void FireSingleShot(Transform firePoint)
     {
         GameObject laser = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         EnemyProjectile projectile = laser.GetComponent<EnemyProjectile>();
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
         projectile.speed = proj_Speed;
         projectile.damage = proj_Damage;
         projectile.targetPosition = CalculateInaccuracy();
+        
+
     }
 }

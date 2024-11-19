@@ -195,12 +195,6 @@ public class EnemyMovement : MonoBehaviour
             SetRandomSpeed();
             SwitchState(State.RandomFlight);
         }
-
-        if (Vector3.Distance(transform.position, playerTransform.position) < detectionRadius)
-        {
-            SetRandomSpeed();
-            SwitchState(State.ChasePlayer);
-        }
     }
 
     private void HandleRandomFlight()
@@ -264,6 +258,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (distanceToPlayer <= detectionRadius)
         {
+            if(IsFacingPlayer())
             enemyFireController.StartFiring();
         }
     }
@@ -322,11 +317,9 @@ public class EnemyMovement : MonoBehaviour
     private void RotateTowards(Vector3 direction)
     {
         if (direction == Vector3.zero) return;
-
-        // Calculate the target rotation based on the desired direction
+       
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        // Smoothly interpolate towards the target rotation
         Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
 
         // Apply the rotation using MoveRotation
