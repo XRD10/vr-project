@@ -186,9 +186,6 @@ public class EnemyMovement : MonoBehaviour
 
         targetRotation = Quaternion.LookRotation(direction);
 
-        // Smooth rotation using angular velocity
-        RotateTowards(direction);
-
         // Switch to random flight when close to the spawn point
         if (Vector3.Distance(transform.position, spawnLocation) < minDistanceFromSpawn)
         {
@@ -211,9 +208,6 @@ public class EnemyMovement : MonoBehaviour
 
             targetRotation = Quaternion.LookRotation(currentDirection);
         }
-
-        // Smooth rotation towards movement direction
-        RotateTowards(rb.linearVelocity);
 
         // Check for player detection
         if (playerTransform != null)
@@ -275,9 +269,6 @@ public class EnemyMovement : MonoBehaviour
 
         targetRotation = Quaternion.LookRotation(evadeDirection);
 
-        // Smooth rotation away from player
-        RotateTowards(evadeDirection);
-
         // Switch back to ChasePlayer if far enough from the player
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer > evadeDistance)
@@ -314,7 +305,7 @@ public class EnemyMovement : MonoBehaviour
         return angleToPlayer < facingAngle;
     }
 
-    private void RotateTowards(Vector3 direction)
+   /* private void RotateTowards(Vector3 direction)
     {
         if (direction == Vector3.zero) return;
        
@@ -324,7 +315,7 @@ public class EnemyMovement : MonoBehaviour
 
         // Apply the rotation using MoveRotation
         rb.MoveRotation(newRotation);
-    }
+    }*/
 
     private void SwitchState(State newState)
     {
