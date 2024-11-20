@@ -12,15 +12,13 @@ public class AsteroidManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("COLLISION");
-
         if (explosion != null)
         {
-            // Instantiate the explosion at the asteroid's position
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
 
-            // Destroy the explosion instance after some time (optional, can adjust based on need)
-            Destroy(explosionInstance, 2f); // Adjust time as needed
+            Destroy(explosionInstance, 2f);
         }
+
+        Destroy(gameObject, 0.1f);
     }
 }

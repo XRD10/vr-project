@@ -369,15 +369,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Asteroid"))
         {
-            // Handle collision with player, apply damage or other effects
-            EnemyPool.Instance.ReturnEnemy(gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("Asteroid"))
-        {
-            // Handle collision with asteroid, apply damage or other effects
+            // Handle collision with player or asteroid, apply damage or other effects
             EnemyPool.Instance.ReturnEnemy(gameObject);
         }
     }
