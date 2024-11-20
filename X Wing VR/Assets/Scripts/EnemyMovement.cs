@@ -176,7 +176,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void HandleReturning()
     {
-        
+
         Vector3 direction = (spawnLocation - transform.position).normalized;
 
         targetRotation = Quaternion.LookRotation(direction);
@@ -372,6 +372,12 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Handle collision with player, apply damage or other effects
+            EnemyPool.Instance.ReturnEnemy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            // Handle collision with asteroid, apply damage or other effects
             EnemyPool.Instance.ReturnEnemy(gameObject);
         }
     }
