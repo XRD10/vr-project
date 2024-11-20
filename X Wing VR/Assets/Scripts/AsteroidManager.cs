@@ -16,9 +16,11 @@ public class AsteroidManager : MonoBehaviour
 
         if (explosion != null)
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-        }
+            // Instantiate the explosion at the asteroid's position
+            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
 
-        Destroy(explosion);
+            // Destroy the explosion instance after some time (optional, can adjust based on need)
+            Destroy(explosionInstance, 2f); // Adjust time as needed
+        }
     }
 }
