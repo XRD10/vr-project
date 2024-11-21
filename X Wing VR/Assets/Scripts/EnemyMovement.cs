@@ -305,18 +305,6 @@ public class EnemyMovement : MonoBehaviour
         return angleToPlayer < facingAngle;
     }
 
-   /* private void RotateTowards(Vector3 direction)
-    {
-        if (direction == Vector3.zero) return;
-       
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-        Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
-
-        // Apply the rotation using MoveRotation
-        rb.MoveRotation(newRotation);
-    }*/
-
     private void SwitchState(State newState)
     {
         currentState = newState;

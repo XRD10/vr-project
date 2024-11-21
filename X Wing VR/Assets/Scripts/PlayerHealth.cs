@@ -17,11 +17,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Taking damage!");
-        Debug.Log("Current health: " + currentHealth);
         if (currentHealth <= 0)
         {
-            Debug.Log("Woops you died!");
             StartCoroutine(Reset());
         }
     }

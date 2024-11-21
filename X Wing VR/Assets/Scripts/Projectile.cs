@@ -43,11 +43,6 @@ public class Projectile : MonoBehaviour
             enemyHealth.TakeDamage(damage);
             Destroy(gameObject);
         } 
-
-        else if (other.CompareTag("Player"))
-        {
-            Debug.Log("Implement player health");
-        }
         
         else if(other.CompareTag("Asteroid"))
         {
