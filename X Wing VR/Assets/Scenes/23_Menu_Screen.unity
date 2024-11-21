@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 192261945}
   - component: {fileID: 192261948}
   - component: {fileID: 192261949}
+  - component: {fileID: 192261950}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -453,6 +454,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!114 &192261950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192261943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db04729fcf0f04d9d8c39642e3e09fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueButton: {fileID: 552741246}
+  menuButton: {fileID: 2100909807}
+  pauseMenu: {fileID: 192261943}
 --- !u!1 &249348771
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +924,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: db04729fcf0f04d9d8c39642e3e09fbe, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -1445,7 +1461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5088323690553433719, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5107827619505787801, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_IsActive
