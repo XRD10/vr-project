@@ -111,7 +111,7 @@ public class FireController : MonoBehaviour
         laserAudioSource.Play();
         Projectile projectile = laser.GetComponent<Projectile>();
         projectile.speed = laserSpeed;
-        projectile.damage = damage; //To be added
+        projectile.damage = damage; 
         projectile.targetPosition = targetPoint.position;
     }
 

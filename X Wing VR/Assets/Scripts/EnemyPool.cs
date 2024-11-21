@@ -24,7 +24,7 @@ public class EnemyPool : MonoBehaviour
     }
    }
 
-   private void InitialisePool()
+    private void InitialisePool()
    {
     for(int i = 0; i < poolSize; i++)
     {
@@ -39,6 +39,11 @@ public class EnemyPool : MonoBehaviour
         if (enemyPool.Count > 0)
         {
             GameObject enemy = enemyPool.Dequeue();
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.OnEnemyDeath += ReturnEnemy;
+            }
             enemy.SetActive(true);
             return enemy;
         }
@@ -51,9 +56,13 @@ public class EnemyPool : MonoBehaviour
 
    public void ReturnEnemy(GameObject enemy)
    {
+    EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+    enemyHealth.Reset();
+    enemyHealth.OnEnemyDeath -= ReturnEnemy;
     enemy.SetActive(false);
     enemyPool.Enqueue(enemy);
-   }
+    Debug.Log("Enemy added to Pool: " + enemyPool.Count);
+    }
 
     public int AvailableEnemies
         { get { return enemyPool.Count; } }

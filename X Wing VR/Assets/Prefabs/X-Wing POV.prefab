@@ -694,7 +694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9096470252362190560
@@ -1977,6 +1977,8 @@ GameObject:
   - component: {fileID: 6592923276943709466}
   - component: {fileID: 7772792942635041767}
   - component: {fileID: 3564118839326668211}
+  - component: {fileID: 8602226164378195766}
+  - component: {fileID: 1328965886128449881}
   m_Layer: 0
   m_Name: X-Wing POV
   m_TagString: Player
@@ -2129,6 +2131,42 @@ MonoBehaviour:
   - {fileID: 6288863347724220807}
   - {fileID: 1726948730968065664}
   targetPoint: {fileID: 2723496860375224841}
+--- !u!65 &8602226164378195766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141661086754717786}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.038681, y: 3.3863788, z: 13.610825}
+  m_Center: {x: 0.2866745, y: -0.1371494, z: -0.35404015}
+--- !u!114 &1328965886128449881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141661086754717786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9148faa16018bd4a819d066ccefa643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  spawnLocation: {x: 0, y: 0, z: 0}
 --- !u!1 &3272526529466344468
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,9 +6323,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4478939578395768617}
+  - component: {fileID: 7662479097523188855}
   m_Layer: 0
   m_Name: Sketchfab_model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6308,6 +6347,21 @@ Transform:
   - {fileID: 779570337087907739}
   m_Father: {fileID: 1223522181686267554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7662479097523188855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548388402557569899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9148faa16018bd4a819d066ccefa643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  spawnLocation: {x: 0, y: 0, z: 0}
 --- !u!1 &8968027359266226041
 GameObject:
   m_ObjectHideFlags: 0
@@ -6638,6 +6692,7 @@ PrefabInstance:
     - {fileID: 1294407658828487183, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
     - {fileID: 4482433666644561137, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
     - {fileID: 1204268256624840122, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+    - {fileID: 2728061302765588508, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
