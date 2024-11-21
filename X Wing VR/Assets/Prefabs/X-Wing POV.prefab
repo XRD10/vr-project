@@ -1867,8 +1867,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.34, y: 2.2}
-  m_SizeDelta: {x: 101.52, y: 10}
+  m_AnchoredPosition: {x: -2.34, y: 2.62}
+  m_SizeDelta: {x: 178.6, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &462132787803443814
 CanvasRenderer:
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 21.5
+  m_text: 10.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83a501de1e73d4d77b501a283318222b, type: 2}
   m_sharedMaterial: {fileID: -7916344844734536201, guid: 83a501de1e73d4d77b501a283318222b, type: 2}
@@ -3917,7 +3917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9, y: -4.79}
+  m_AnchoredPosition: {x: -0.86, y: -4.9}
   m_SizeDelta: {x: 101.52, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4925661101413128029
@@ -3948,7 +3948,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MGLT/s
+  m_text: 'MGLT
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83a501de1e73d4d77b501a283318222b, type: 2}
   m_sharedMaterial: {fileID: -7916344844734536201, guid: 83a501de1e73d4d77b501a283318222b, type: 2}
@@ -3975,8 +3977,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.8
-  m_fontSizeBase: 51.8
+  m_fontSize: 45.65
+  m_fontSizeBase: 45.65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7043,8 +7045,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1223522181686267554}
     m_Modifications:
+    - target: {fileID: 2146686522377768345, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+      propertyPath: m_StartingInteractionOverridesMap.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3304575758927212820, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
       propertyPath: m_EnableFarCasting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304575758927212820, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
+      propertyPath: m_EnableNearCasting
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6247374676090438152, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
@@ -7093,7 +7103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7568749831734051505, guid: 0f0eb83909ffb4747ade58292fcc27e5, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

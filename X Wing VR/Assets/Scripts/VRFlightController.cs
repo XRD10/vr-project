@@ -26,7 +26,7 @@ public class VRFlightController : MonoBehaviour
 
 	void Start()
 	{
-		_currentSpeed = _minSpeed;
+		_currentSpeed = _currentSpeed;
 
 		speedDisplay = GameObject.FindWithTag("SpeedDisplay").GetComponent<TextMeshProUGUI>();
 	}
@@ -68,7 +68,9 @@ public class VRFlightController : MonoBehaviour
 
 		if (speedDisplay != null)
         {
-            speedDisplay.text = $"{_currentSpeed:F1}";
+			// 110 is max top speed of x-wing
+			float displayedSpeed = (_currentSpeed - _minSpeed) * (110 - _minSpeed) / (_topSpeed - _minSpeed) + _minSpeed;
+            speedDisplay.text = $"{displayedSpeed:F1}";
         }
 	}
 
@@ -86,10 +88,5 @@ public class VRFlightController : MonoBehaviour
 	public void OnJoystickYChange(float value)
 	{
 		_joystickY = value;
-	}
-
-	public float GetCurrentSpeed()
-	{
-    	return _currentSpeed;
 	}
 }
