@@ -1812,14 +1812,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1163744328}
-  options: {fileID: 0}
   about: {fileID: 79910497}
   startButton: {fileID: 448256129}
   optionButton: {fileID: 0}
   aboutButton: {fileID: 299148710}
   quitButton: {fileID: 1101969936}
   returnButtons:
-  - {fileID: 0}
   - {fileID: 656018491}
 --- !u!1 &1273556205
 GameObject:

@@ -24,7 +24,6 @@ public class GameStartMenu : MonoBehaviour
 
         //Hook events
         startButton.onClick.AddListener(StartGame);
-        optionButton.onClick.AddListener(EnableOption);
         aboutButton.onClick.AddListener(EnableAbout);
         quitButton.onClick.AddListener(QuitGame);
 
