@@ -8,6 +8,7 @@ TagManager:
   - Anchor
   - HomeBase
   - PatrolPoints
+  - SpeedDisplay
   layers:
   - Default
   - TransparentFX
