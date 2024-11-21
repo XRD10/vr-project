@@ -77,4 +77,9 @@ public class VRFlightController : MonoBehaviour
 	{
 		_joystickY = value;
 	}
+
+	public float GetCurrentSpeed()
+	{
+    	return _currentSpeed;
+	}
 }
