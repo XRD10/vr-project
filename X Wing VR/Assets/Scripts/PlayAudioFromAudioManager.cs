@@ -8,11 +8,11 @@ public class PlayAudioFromAudioManager : MonoBehaviour
 
     public void Play()
     {
-        AudioManager.instance.Play(target);
+        UIAudioManager.instance.Play(target);
     }
 
     public void Play(string audioName)
     {
-        AudioManager.instance.Play(audioName);
+        UIAudioManager.instance.Play(audioName);
     }
 }

@@ -24,11 +24,11 @@ public class Sound
     }
 }
 
-public class AudioManager : MonoBehaviour
+public class UIAudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    public static AudioManager instance;
+    public static UIAudioManager instance;
     //AudioManager
 
     void Awake()

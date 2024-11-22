@@ -13,7 +13,7 @@ public class UIAudio : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
     {
         if (clickAudioName != "")
         {
-            AudioManager.instance.Play(clickAudioName);
+            UIAudioManager.instance.Play(clickAudioName);
         }
     }
 
@@ -21,7 +21,7 @@ public class UIAudio : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
     {
         if (hoverEnterAudioName != "")
         {
-            AudioManager.instance.Play(hoverEnterAudioName);
+            UIAudioManager.instance.Play(hoverEnterAudioName);
         }
     }
 
@@ -29,7 +29,7 @@ public class UIAudio : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
     {
         if (hoverExitAudioName != "")
         {
-            AudioManager.instance.Play(hoverExitAudioName);
+            UIAudioManager.instance.Play(hoverExitAudioName);
         }
     }
 }

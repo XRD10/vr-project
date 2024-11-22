@@ -144,8 +144,19 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d5ac793c-9b14-419e-9e33-c7227c02a733"",
+                    ""id"": ""cebbb131-031e-4e09-af3c-e5f3d1e4440d"",
                     ""path"": ""<XRController>{LeftHand}/menu"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39e62ab3-ce2f-4605-9ba2-f4e7ba2dd8c4"",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

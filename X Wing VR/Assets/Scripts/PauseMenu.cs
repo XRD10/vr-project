@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class PauseMenu : MonoBehaviour
 {
-    private Canvas pauseMenu;
+    public Canvas pauseMenu;
     public InputActionAsset inputActions;
     public Button continueButton;
     public Button menuButton;
@@ -30,9 +30,8 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        pauseMenu = gameObject.GetComponent<Canvas>();
-        pauseMenu.enabled = true;
-        farCastEnable(true);
+        pauseMenu.enabled = false;
+        farCastEnable(false);
         continueButton.onClick.AddListener(Continue);
         menuButton.onClick.AddListener(NavigateToMainMenu);
         flightControls.Flying.ToggleMenu.Enable();
@@ -41,21 +40,18 @@ public class PauseMenu : MonoBehaviour
 
     public void ToggleMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("TOGGLE YES");
         pauseMenu.enabled = !pauseMenu.enabled;
-        farCastEnable(!pauseMenu.enabled);
+        farCastEnable(pauseMenu.enabled);
     }
 
     public void Continue()
     {
         farCastEnable(false);
-        Debug.Log("Hide Pause Menu");
-        gameObject.SetActive(false);
+        pauseMenu.enabled = false;
     }
 
     public void NavigateToMainMenu()
     {
-        Debug.Log("Navigate to Main Menu");
         SceneManager.LoadScene(0);
     }
 
