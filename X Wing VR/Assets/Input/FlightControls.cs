@@ -145,7 +145,7 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cebbb131-031e-4e09-af3c-e5f3d1e4440d"",
-                    ""path"": ""<XRController>{LeftHand}/menu"",
+                    ""path"": ""<XRController>{LeftHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -156,7 +156,7 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""39e62ab3-ce2f-4605-9ba2-f4e7ba2dd8c4"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
