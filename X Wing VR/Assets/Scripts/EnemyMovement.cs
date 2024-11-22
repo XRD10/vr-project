@@ -181,7 +181,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void HandleReturning()
     {
-        
+
         Vector3 direction = (spawnLocation - transform.position).normalized;
 
         targetRotation = Quaternion.LookRotation(direction);
@@ -235,7 +235,7 @@ public class EnemyMovement : MonoBehaviour
         Vector3 direction = (playerTransform.position - transform.position).normalized;
         targetRotation = Quaternion.LookRotation(direction);
 
-        
+
         // Check if player is out of detection radius
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
@@ -252,8 +252,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (distanceToPlayer <= detectionRadius)
         {
-            if(IsFacingPlayer())
-            enemyFireController.StartFiring();
+            if (IsFacingPlayer())
+                enemyFireController.StartFiring();
         }
     }
 
@@ -361,6 +361,12 @@ public class EnemyMovement : MonoBehaviour
             EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
             enemyHealth.Die();
         }
+
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            EnemyPool.Instance.ReturnEnemy(gameObject);
+        }
+
     }
 
 }
