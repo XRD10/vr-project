@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 9067531388804198862}
   - component: {fileID: 8053471740905143340}
   - component: {fileID: 6551340095693749513}
+  - component: {fileID: 8492617743990741373}
+  - component: {fileID: -2469336508816826384}
   m_Layer: 6
   m_Name: TIE Interceptor 1
   m_TagString: Enemy
@@ -35,6 +37,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8851320700146187089}
+  - {fileID: 3548231850147292888}
+  - {fileID: 2139050535436176698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1388760016816978761
@@ -159,21 +163,119 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  maxDistanceFromSpawn: 3000
-  minDistanceFromSpawn: 20
+  maxDistanceFromSpawn: 1000
+  minDistanceFromSpawn: 50
   directionChangeInterval: 30
   currentDirection: {x: 0, y: 0, z: 0}
-  detectionRadius: 250
+  detectionRadius: 400
   evadeSpeed: 60
   evadeThreshold: 60
   evadeDistance: 250
   facingAngle: 30
-  maxSpeed: 70
+  maxSpeed: 50
   minSpeed: 40
   currentSpeed: 0
   rotationSpeed: 1
   separationRadius: 40
   separationStrength: 20
+--- !u!114 &8492617743990741373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432260619671924310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9ebe5bb4c53b2489611dd3c48c5bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
+  explosionPrefab: {fileID: 41109319002671601, guid: 524d26f63800c59449e63eed86db1d3e, type: 3}
+--- !u!114 &-2469336508816826384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432260619671924310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41108d34dff01146934cbf3b2f8e1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 603871597251875860, guid: 1beb9f36173ebac49bdadf935f0facb1, type: 3}
+  proj_Speed: 400
+  proj_Damage: 1
+  firepoints:
+  - {fileID: 3548231850147292888}
+  - {fileID: 2139050535436176698}
+  shotsPerBurst: 4
+  timeBetweenShots: 0.5
+  timeBetweenBursts: 5
+--- !u!1 &4828652755974572085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3548231850147292888}
+  m_Layer: 6
+  m_Name: Firepoint_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3548231850147292888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828652755974572085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.337, y: -1.026, z: 1.256}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2659945633232401644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5261238660868934789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2139050535436176698}
+  m_Layer: 6
+  m_Name: Firepoint_L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2139050535436176698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261238660868934789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.377, y: -1.023, z: 1.276}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2659945633232401644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7751121408577379766
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,6 +63,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Rigidbody rb;
 
+    private EnemyFireController enemyFireController;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -77,6 +79,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.LogWarning("Player not found. Ensure the player is tagged as 'Player'");
         }
+
         SetRandomSpeed();
         currentState = State.RandomFlight;
 
@@ -87,6 +90,8 @@ public class EnemyMovement : MonoBehaviour
 
         // Ensure the enemy GameObjects are on the "Enemy" layer
         gameObject.layer = LayerMask.NameToLayer("Enemy");
+
+        enemyFireController = GetComponent<EnemyFireController>();
     }
 
     private void Update()
@@ -181,20 +186,11 @@ public class EnemyMovement : MonoBehaviour
 
         targetRotation = Quaternion.LookRotation(direction);
 
-        // Smooth rotation using angular velocity
-        RotateTowards(direction);
-
         // Switch to random flight when close to the spawn point
         if (Vector3.Distance(transform.position, spawnLocation) < minDistanceFromSpawn)
         {
             SetRandomSpeed();
             SwitchState(State.RandomFlight);
-        }
-
-        if (Vector3.Distance(transform.position, playerTransform.position) < detectionRadius)
-        {
-            SetRandomSpeed();
-            SwitchState(State.ChasePlayer);
         }
     }
 
@@ -212,9 +208,6 @@ public class EnemyMovement : MonoBehaviour
 
             targetRotation = Quaternion.LookRotation(currentDirection);
         }
-
-        // Smooth rotation towards movement direction
-        RotateTowards(rb.linearVelocity);
 
         // Check for player detection
         if (playerTransform != null)
@@ -245,6 +238,7 @@ public class EnemyMovement : MonoBehaviour
 
         // Check if player is out of detection radius
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
         if (distanceToPlayer > detectionRadius * 3)
         {
             SetRandomSpeed();
@@ -252,9 +246,14 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Check if player is too close
-        if (distanceToPlayer <= evadeThreshold && IsFacingPlayer())
+        else if (distanceToPlayer <= evadeThreshold && IsFacingPlayer())
         {
             SwitchState(State.EvadePlayer);
+        }
+        else if (distanceToPlayer <= detectionRadius)
+        {
+            if (IsFacingPlayer())
+                enemyFireController.StartFiring();
         }
     }
 
@@ -269,9 +268,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
         targetRotation = Quaternion.LookRotation(evadeDirection);
-
-        // Smooth rotation away from player
-        RotateTowards(evadeDirection);
 
         // Switch back to ChasePlayer if far enough from the player
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
@@ -309,20 +305,6 @@ public class EnemyMovement : MonoBehaviour
         return angleToPlayer < facingAngle;
     }
 
-    private void RotateTowards(Vector3 direction)
-    {
-        if (direction == Vector3.zero) return;
-
-        // Calculate the target rotation based on the desired direction
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-        // Smoothly interpolate towards the target rotation
-        Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
-
-        // Apply the rotation using MoveRotation
-        rb.MoveRotation(newRotation);
-    }
-
     private void SwitchState(State newState)
     {
         currentState = newState;
@@ -332,6 +314,10 @@ public class EnemyMovement : MonoBehaviour
             hasEvaded = false;
         }
 
+        if (newState != State.ChasePlayer)
+        {
+            enemyFireController.StopFiring();
+        }
         // Set appropriate target rotation when switching states
         switch (newState)
         {
@@ -369,10 +355,18 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Asteroid"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // Handle collision with player or asteroid, apply damage or other effects
+            // Handle collision with player, apply damage or other effects
+            EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.Die();
+        }
+
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
             EnemyPool.Instance.ReturnEnemy(gameObject);
         }
+
     }
+
 }
