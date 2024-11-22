@@ -2,46 +2,51 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 
 public class PauseMenu : MonoBehaviour
 {
-    public static PauseMenu instance;
+    private Canvas pauseMenu;
+    public InputActionAsset inputActions;
     public Button continueButton;
     public Button menuButton;
+    private InputAction toggleMenuButton;
 
-    [SerializeField]
-    private GameObject pauseMenu;
+    private FlightControls flightControls;
+
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+        flightControls = new FlightControls();
     }
+
 
     void Start()
     {
-        pauseMenu.SetActive(true);
-        continueButton.onClick.AddListener(HidePauseMenu);
+        pauseMenu = gameObject.GetComponent<Canvas>();
+        pauseMenu.enabled = false;
+        continueButton.onClick.AddListener(Continue);
         menuButton.onClick.AddListener(NavigateToMainMenu);
+        // toggleMenuButton = inputActions.FindActionMap("Flying").FindAction("ToggleMenu");
+        flightControls.Flying.ToggleMenu.Enable();
+        flightControls.Flying.ToggleMenu.performed += ToggleMenu;
     }
 
-    public void ShowPauseMenu()
+    public void ToggleMenu(InputAction.CallbackContext context)
     {
-        pauseMenu.SetActive(true);
+        pauseMenu.enabled = !pauseMenu.enabled;
     }
 
-    public void HidePauseMenu()
+    public void Continue()
     {
         Debug.Log("Hide Pause Menu");
-
+        gameObject.SetActive(false);
     }
 
     public void NavigateToMainMenu()
     {
         Debug.Log("Navigate to Main Menu");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 }
