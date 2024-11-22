@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ToggleMenu(InputAction.CallbackContext context)
     {
+        Debug.Log("TOGGLE YES");
         pauseMenu.enabled = !pauseMenu.enabled;
         farCastEnable(!pauseMenu.enabled);
     }

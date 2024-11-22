@@ -40,6 +40,8 @@ public class FireController : MonoBehaviour
     private void OnEnable()
     {
         flightControls.Flying.Enable();
+        flightControls.Flying.ToggleMenu.Enable();
+        flightControls.Flying.ToggleMenu.performed += ToggleMenu;
         flightControls.Flying.Shoot.performed += OnFirePerformed;
         flightControls.Flying.Shoot.canceled += OnFireCancelled;
     }
@@ -49,6 +51,11 @@ public class FireController : MonoBehaviour
         flightControls.Flying.Shoot.performed -= OnFirePerformed;
         flightControls.Flying.Shoot.canceled -= OnFireCancelled;
         flightControls.Flying.Disable();
+    }
+
+    public void ToggleMenu(InputAction.CallbackContext context)
+    {
+        Debug.Log("TOGGLE YES NEW");
     }
 
 

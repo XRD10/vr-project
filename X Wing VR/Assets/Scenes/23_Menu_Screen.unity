@@ -5715,7 +5715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db04729fcf0f04d9d8c39642e3e09fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputActions: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  inputActions: {fileID: -944628639613478452, guid: a6a0d70d207134047b95afc431a1a462, type: 3}
   continueButton: {fileID: 1902660912}
   menuButton: {fileID: 1556443384}
   leftNearFarInteractor: {fileID: 1044842068}
