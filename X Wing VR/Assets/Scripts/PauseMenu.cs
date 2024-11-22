@@ -5,49 +5,72 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
-
 public class PauseMenu : MonoBehaviour
 {
     public Canvas pauseMenu;
-    public InputActionAsset inputActions;
     public Button continueButton;
     public Button menuButton;
 
     public GameObject leftNearFarInteractor;
     public GameObject rightNearFarInteractor;
 
-
-    private InputAction toggleMenuButton;
-
     private FlightControls flightControls;
-
 
     private void Awake()
     {
         flightControls = new FlightControls();
     }
 
-
-    void Start()
+    private void OnEnable()
     {
-        pauseMenu.enabled = false;
-        farCastEnable(false);
-        continueButton.onClick.AddListener(Continue);
-        menuButton.onClick.AddListener(NavigateToMainMenu);
+        // Subscribe to the event
         flightControls.Flying.ToggleMenu.Enable();
         flightControls.Flying.ToggleMenu.performed += ToggleMenu;
     }
 
+    private void OnDisable()
+    {
+        // Unsubscribe from the event
+        flightControls.Flying.ToggleMenu.performed -= ToggleMenu;
+        flightControls.Flying.ToggleMenu.Disable();
+    }
+
+    void Start()
+    {
+        if (pauseMenu != null)
+        {
+            pauseMenu.enabled = false;
+        }
+
+        farCastEnable(false);
+
+        if (continueButton != null)
+        {
+            continueButton.onClick.AddListener(Continue);
+        }
+
+        if (menuButton != null)
+        {
+            menuButton.onClick.AddListener(NavigateToMainMenu);
+        }
+    }
+
     public void ToggleMenu(InputAction.CallbackContext context)
     {
-        pauseMenu.enabled = !pauseMenu.enabled;
-        farCastEnable(pauseMenu.enabled);
+        if (pauseMenu != null)
+        {
+            pauseMenu.enabled = !pauseMenu.enabled;
+            farCastEnable(pauseMenu.enabled);
+        }
     }
 
     public void Continue()
     {
         farCastEnable(false);
-        pauseMenu.enabled = false;
+        if (pauseMenu != null)
+        {
+            pauseMenu.enabled = false;
+        }
     }
 
     public void NavigateToMainMenu()
@@ -57,8 +80,14 @@ public class PauseMenu : MonoBehaviour
 
     public void farCastEnable(bool enable)
     {
-        leftNearFarInteractor.GetComponent<NearFarInteractor>().enableFarCasting = enable;
-        rightNearFarInteractor.GetComponent<NearFarInteractor>().enableFarCasting = enable;
-    }
+        if (leftNearFarInteractor != null)
+        {
+            leftNearFarInteractor.GetComponent<NearFarInteractor>().enableFarCasting = enable;
+        }
 
+        if (rightNearFarInteractor != null)
+        {
+            rightNearFarInteractor.GetComponent<NearFarInteractor>().enableFarCasting = enable;
+        }
+    }
 }
