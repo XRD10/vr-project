@@ -40,7 +40,8 @@ public class PauseMenu : MonoBehaviour
 
     public void NavigateToMainMenu()
     {
-        SceneLoader.instance.LoadScene("Menu");
+        Debug.Log("Navigate to Main Menu");
+        SceneManager.LoadScene(1);
     }
 
 }
