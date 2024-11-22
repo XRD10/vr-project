@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start Scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/23_Menu_Screen.unity
     guid: e6ab149794afc4a31964f73fc1b8aba0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: cf6fc352ace1b4f348eaeaea65a090ac
   - enabled: 0
     path: Assets/Scenes/08_RotationScript.unity
     guid: 976e0c88c87ac46f3966f4fcabb11384
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/20_shooting2.unity
     guid: d1bfb6d17fed14d4298aaa9ec237c2a1
   m_configObjects:
