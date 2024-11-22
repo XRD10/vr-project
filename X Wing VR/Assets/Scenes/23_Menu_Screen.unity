@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &33288767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6990305700570484340, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+  m_PrefabInstance: {fileID: 841619745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &96137109
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,6 +2451,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013279507}
   m_CullTransparentMesh: 1
+--- !u!1 &1044842068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2726685506809314769, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+  m_PrefabInstance: {fileID: 841619745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1096252357
 GameObject:
   m_ObjectHideFlags: 0
@@ -5708,6 +5718,8 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   continueButton: {fileID: 1902660912}
   menuButton: {fileID: 1556443384}
+  leftNearFarInteractor: {fileID: 1044842068}
+  rightNearFarInteractor: {fileID: 33288767}
 --- !u!1 &2054538399
 GameObject:
   m_ObjectHideFlags: 0
