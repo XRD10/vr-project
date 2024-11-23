@@ -13,7 +13,7 @@ public class FireController : MonoBehaviour
     GameObject laserPrefab;
     public AudioSource laserAudioSource;
 
-    
+
     [Header("----Meta----")]
     public bool isFiring = false;
     private Coroutine firingCoroutine;
@@ -21,7 +21,7 @@ public class FireController : MonoBehaviour
     [Header("----Firing points----")]
     [Tooltip("Adjust firing order here")]
     [SerializeField]
-    Transform [] laserOrigins;
+    Transform[] laserOrigins;
     private int currentLaserIndex = 0;
 
     [Header("----Target point----")]
@@ -52,11 +52,10 @@ public class FireController : MonoBehaviour
         flightControls.Flying.Disable();
     }
 
-    
     private void OnFirePerformed(InputAction.CallbackContext context)
     {
-        if(!isFiring)
-        {   
+        if (!isFiring)
+        {
             isFiring = true;
             firingCoroutine = StartCoroutine(FireContinuously());
         }
@@ -64,7 +63,7 @@ public class FireController : MonoBehaviour
 
     private void OnFireCancelled(InputAction.CallbackContext context)
     {
-        if(isFiring)
+        if (isFiring)
         {
             isFiring = false;
             if (firingCoroutine != null)
