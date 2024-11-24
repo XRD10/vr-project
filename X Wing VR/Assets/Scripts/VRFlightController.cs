@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
 using TMPro;
+using UnityEngine.UI;
 
 //This controller is used to control the flight in the VR environment (by moving the joystick and thrust controllers)
 public class VRFlightController : MonoBehaviour
@@ -11,6 +12,8 @@ public class VRFlightController : MonoBehaviour
 	[SerializeField] private int rollDetailer = 1;
 	[SerializeField]
 	private AudioController audioController;
+	[SerializeField]
+	private Image speedBar;
 
 
 	private readonly float _topSpeed = 50.0f;
@@ -26,7 +29,7 @@ public class VRFlightController : MonoBehaviour
 
 	void Start()
 	{
-		_currentSpeed = _currentSpeed;
+		_currentSpeed = 50;
 
 		speedDisplay = GameObject.FindWithTag("SpeedDisplay").GetComponent<TextMeshProUGUI>();
 	}
@@ -67,11 +70,14 @@ public class VRFlightController : MonoBehaviour
 		}
 
 		if (speedDisplay != null)
-        {
+		{
 			// 110 is max top speed of x-wing
 			float displayedSpeed = (_currentSpeed - _minSpeed) * (110 - _minSpeed) / (_topSpeed - _minSpeed) + _minSpeed;
-            speedDisplay.text = $"{displayedSpeed:F1}";
-        }
+			speedDisplay.text = $"{displayedSpeed:F1}";
+
+			float fillAmount = Mathf.InverseLerp(_minSpeed, _topSpeed, _currentSpeed);
+			speedBar.fillAmount = fillAmount;
+		}
 	}
 
 	public void OnThrustChange(float value)
