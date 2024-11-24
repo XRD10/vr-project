@@ -53,6 +53,15 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""6bbcaf18-dfc5-4abe-ade5-bf2a348b4c68"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,28 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cebbb131-031e-4e09-af3c-e5f3d1e4440d"",
+                    ""path"": ""<XRController>{LeftHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39e62ab3-ce2f-4605-9ba2-f4e7ba2dd8c4"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +174,7 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
         m_Flying_PitchYaw = m_Flying.FindAction("Pitch+Yaw", throwIfNotFound: true);
         m_Flying_ThurstRoll = m_Flying.FindAction("Thurst+Roll", throwIfNotFound: true);
         m_Flying_Shoot = m_Flying.FindAction("Shoot", throwIfNotFound: true);
+        m_Flying_ToggleMenu = m_Flying.FindAction("ToggleMenu", throwIfNotFound: true);
     }
 
     ~@FlightControls()
@@ -212,6 +244,7 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Flying_PitchYaw;
     private readonly InputAction m_Flying_ThurstRoll;
     private readonly InputAction m_Flying_Shoot;
+    private readonly InputAction m_Flying_ToggleMenu;
     public struct FlyingActions
     {
         private @FlightControls m_Wrapper;
@@ -219,6 +252,7 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
         public InputAction @PitchYaw => m_Wrapper.m_Flying_PitchYaw;
         public InputAction @ThurstRoll => m_Wrapper.m_Flying_ThurstRoll;
         public InputAction @Shoot => m_Wrapper.m_Flying_Shoot;
+        public InputAction @ToggleMenu => m_Wrapper.m_Flying_ToggleMenu;
         public InputActionMap Get() { return m_Wrapper.m_Flying; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -237,6 +271,9 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @ToggleMenu.started += instance.OnToggleMenu;
+            @ToggleMenu.performed += instance.OnToggleMenu;
+            @ToggleMenu.canceled += instance.OnToggleMenu;
         }
 
         private void UnregisterCallbacks(IFlyingActions instance)
@@ -250,6 +287,9 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @ToggleMenu.started -= instance.OnToggleMenu;
+            @ToggleMenu.performed -= instance.OnToggleMenu;
+            @ToggleMenu.canceled -= instance.OnToggleMenu;
         }
 
         public void RemoveCallbacks(IFlyingActions instance)
@@ -272,5 +312,6 @@ public partial class @FlightControls: IInputActionCollection2, IDisposable
         void OnPitchYaw(InputAction.CallbackContext context);
         void OnThurstRoll(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnToggleMenu(InputAction.CallbackContext context);
     }
 }

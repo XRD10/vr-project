@@ -1,5 +1,11 @@
 # X-Wing VR
 
+Step into the cockpit of an X-Wing and experience the thrill of intergalactic combat in X-Wing VR, a Star Wars-inspired virtual reality adventure. Take control of your ship’s joystick, manage thrust to outmaneuver enemies, and unleash laser fire in intense space battles.
+
+Your mission: evade relentless TIE-Interceptors, destroy as many as you can, and navigate through a hazardous field of Imperial cruisers and meteorites. Survive the onslaught, master your piloting skills, and prove your worth as the galaxy’s finest pilot.
+
+Will you outfly your foes or crash and burn in the depths of space? The fate of the stars rests in your hands!
+
 ## For developers:
 
 In the **X-Wing POV** prefab there are 2 controllers:

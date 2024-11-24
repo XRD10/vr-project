@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed;
+    [SerializeField]
     public int damage;
 
     public Vector3 targetPosition;
@@ -18,7 +19,7 @@ public class Projectile : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(direction);
         }
-
+        damage = 1;
         Destroy(gameObject, timeToLive);
     }
 
@@ -33,5 +34,19 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy")) {
+            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(damage);
+            Destroy(gameObject);
+        } 
+        
+        else if(other.CompareTag("Asteroid"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
