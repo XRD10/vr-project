@@ -292,6 +292,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3141661086754717786, guid: ca53d27da022d44a483f787c6b920000, type: 3}
   m_PrefabInstance: {fileID: 841619745}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &146773784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6592923276943709466, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+  m_PrefabInstance: {fileID: 841619745}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146773779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39353b452529b41cdba662e7b8f41639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &146773786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1223522181686267554, guid: ca53d27da022d44a483f787c6b920000, type: 3}
@@ -309,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5428140c4654911a07e1f0fd97159a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flightController: {fileID: 0}
+  flightController: {fileID: 146773784}
   speedDisplay: {fileID: 908162161}
   speedBar: {fileID: 1842435063}
 --- !u!4 &152535935 stripped
