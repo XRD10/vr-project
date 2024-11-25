@@ -70,18 +70,18 @@ public class EnemySpawner : MonoBehaviour
 
         
         else { 
-        int index = Random.Range(0, spawnPoints.Length);
+        int index = Random.Range(1, spawnPoints.Length);
         GameObject enemy = EnemyPool.Instance.GetEnemy();
         if (enemy != null)
-        {
-            enemy.transform.position = spawnPoints[index].position;
-            enemy.transform.rotation = spawnPoints[index].rotation;
-        }
+            {
+                enemy.transform.position = spawnPoints[index].position;
+                enemy.transform.rotation = spawnPoints[index].rotation;
+            }
         else
-        {
-            Debug.Log("Spawning stopped");
-            StopSpawning();
-        }
+            {
+                Debug.Log("Spawning stopped");
+                StopSpawning();
+            }
         }
     }
 
