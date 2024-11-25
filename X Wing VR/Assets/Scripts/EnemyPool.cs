@@ -3,39 +3,39 @@ using System.Collections.Generic;
 
 public class EnemyPool : MonoBehaviour
 {
-   public static EnemyPool Instance;
+    public static EnemyPool Instance;
 
-   [Header("----Pooling Settings----")]
-   public GameObject enemyPrefab;
-   public int poolSize = 20;
+    [Header("----Pooling Settings----")]
+    public GameObject enemyPrefab;
+    public int poolSize = 20;
 
-   private Queue<GameObject> enemyPool = new Queue<GameObject>();
+    private Queue<GameObject> enemyPool = new Queue<GameObject>();
 
-   private void Awake()
-   {
-    if(Instance == null)
+    private void Awake()
     {
-        Instance = this;
-        InitialisePool();
+        if (Instance == null)
+        {
+            Instance = this;
+            InitialisePool();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-    else
-    {
-        Destroy(gameObject);
-    }
-   }
 
     private void InitialisePool()
-   {
-    for(int i = 0; i < poolSize; i++)
     {
-        GameObject enemy = Instantiate(enemyPrefab);
-        enemy.SetActive(false);
-        enemyPool.Enqueue(enemy);
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject enemy = Instantiate(enemyPrefab);
+            enemy.SetActive(false);
+            enemyPool.Enqueue(enemy);
+        }
     }
-   }
 
-   public GameObject GetEnemy()
-   {
+    public GameObject GetEnemy()
+    {
         if (enemyPool.Count > 0)
         {
             GameObject enemy = enemyPool.Dequeue();
@@ -47,23 +47,21 @@ public class EnemyPool : MonoBehaviour
             enemy.SetActive(true);
             return enemy;
         }
-        else 
+        else
         {
-            Debug.Log("EnemyPool is empty");
             return null;
         }
-   }
+    }
 
-   public void ReturnEnemy(GameObject enemy)
-   {
-    EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-    enemyHealth.Reset();
-    enemyHealth.OnEnemyDeath -= ReturnEnemy;
-    enemy.SetActive(false);
-    enemyPool.Enqueue(enemy);
-    Debug.Log("Enemy added to Pool: " + enemyPool.Count);
+    public void ReturnEnemy(GameObject enemy)
+    {
+        EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+        enemyHealth.Reset();
+        enemyHealth.OnEnemyDeath -= ReturnEnemy;
+        enemy.SetActive(false);
+        enemyPool.Enqueue(enemy);
     }
 
     public int AvailableEnemies
-        { get { return enemyPool.Count; } }
+    { get { return enemyPool.Count; } }
 }
