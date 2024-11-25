@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engineSound: {fileID: 406253940}
   engineAudioController: {fileID: 872471838}
-  playerLaser: {fileID: 0}
+  playerLaser: {fileID: 1342117476}
 --- !u!4 &674750802
 Transform:
   m_ObjectHideFlags: 0
@@ -633,6 +633,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1422302818890698500, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 98ead3eec59e34fd3abd85d1215a1943, type: 2}
     - target: {fileID: 1492359521135781509, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1893,6 +1897,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+--- !u!82 &1342117476 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1422302818890698500, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+  m_PrefabInstance: {fileID: 841619745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1345218187
 GameObject:
   m_ObjectHideFlags: 0

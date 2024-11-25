@@ -2101,6 +2101,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a8af60cd-2bb7-4974-b2cd-2dbf79e84f18
     m_ActionName: 'Flying/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6bbcaf18-dfc5-4abe-ade5-bf2a348b4c68
+    m_ActionName: 'Flying/ToggleMenu[/Keyboard/n]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Flying
@@ -2890,7 +2894,7 @@ AudioSource:
   m_GameObject: {fileID: 4097448501687131319}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 98ead3eec59e34fd3abd85d1215a1943, type: 2}
   m_audioClip: {fileID: 8300000, guid: f6ca69854396cc4429eb9ac67da05a7c, type: 3}
   m_Resource: {fileID: 8300000, guid: f6ca69854396cc4429eb9ac67da05a7c, type: 3}
   m_PlayOnAwake: 1
