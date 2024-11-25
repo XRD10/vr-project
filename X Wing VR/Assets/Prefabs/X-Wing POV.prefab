@@ -1984,6 +1984,7 @@ GameObject:
   - component: {fileID: 2672149742874656289}
   - component: {fileID: 5839745648465471626}
   - component: {fileID: 9222635125658781364}
+  - component: {fileID: 1494679888138952589}
   m_Layer: 0
   m_Name: X-Wing POV
   m_TagString: Player
@@ -2283,6 +2284,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.57, y: 0.59, z: 7.74}
   m_Center: {x: 5.91, y: 1.38, z: -1.21}
+--- !u!114 &1494679888138952589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141661086754717786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5428140c4654911a07e1f0fd97159a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flightController: {fileID: 6592923276943709466}
+  speedDisplay: {fileID: 2466789291477460807}
+  speedBar: {fileID: 1629776959409157164}
 --- !u!1 &3272526529466344468
 GameObject:
   m_ObjectHideFlags: 0
@@ -6836,6 +6852,28 @@ PrefabInstance:
       addedObject: {fileID: 1816173114829536024}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89bfe61078ddc41ed9defb6f5c25ed3c, type: 3}
+--- !u!114 &1629776959409157164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4454903925855881835, guid: 89bfe61078ddc41ed9defb6f5c25ed3c, type: 3}
+  m_PrefabInstance: {fileID: 3120112759238360647}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2466789291477460807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 682037836631808256, guid: 89bfe61078ddc41ed9defb6f5c25ed3c, type: 3}
+  m_PrefabInstance: {fileID: 3120112759238360647}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2995884466756483962 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 206984209421665597, guid: 89bfe61078ddc41ed9defb6f5c25ed3c, type: 3}

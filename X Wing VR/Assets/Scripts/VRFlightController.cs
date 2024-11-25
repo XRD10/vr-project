@@ -8,12 +8,12 @@ public class VRFlightController : MonoBehaviour
 	[SerializeField] private int pitchDetailer = 1;
 	[Tooltip("Number by which the roll is multiplied")]
 	[SerializeField] private int rollDetailer = 1;
+	[SerializeField] private float topSpeed = 50.0f;
+	[SerializeField] private float minSpeed = 10.0f;
+
 	[SerializeField]
 	private AudioController audioController;
 
-
-	private readonly float _topSpeed = 50.0f;
-	private readonly float _minSpeed = 10.0f;
 	private float _speedChange = 0.0f;
 	private float _currentSpeed;
 	private float _desiredSpeed;
@@ -23,7 +23,7 @@ public class VRFlightController : MonoBehaviour
 
 	void Start()
 	{
-		_currentSpeed = _minSpeed;
+		_currentSpeed = minSpeed;
 	}
 
 	// Update is called once per frame
@@ -40,13 +40,13 @@ public class VRFlightController : MonoBehaviour
 		}
 
 		// Dont go below or above the speed limits
-		if (_currentSpeed > _topSpeed)
+		if (_currentSpeed > topSpeed)
 		{
-			_currentSpeed = _topSpeed;
+			_currentSpeed = topSpeed;
 		}
-		else if (_currentSpeed < _minSpeed)
+		else if (_currentSpeed < minSpeed)
 		{
-			_currentSpeed = _minSpeed;
+			_currentSpeed = minSpeed;
 		}
 
 		// Rotation change
@@ -58,13 +58,13 @@ public class VRFlightController : MonoBehaviour
 
 		if (audioController != null)
 		{
-			audioController.UpdateEngineSound(_currentSpeed, _minSpeed, _topSpeed);
+			audioController.UpdateEngineSound(_currentSpeed, minSpeed, topSpeed);
 		}
 	}
 
 	public void OnThrustChange(float value)
 	{
-		_desiredSpeed = Mathf.Lerp(_minSpeed, _topSpeed, value);
+		_desiredSpeed = Mathf.Lerp(minSpeed, topSpeed, value);
 		_speedChange = Mathf.Abs(_desiredSpeed - _currentSpeed) * 0.5f;
 	}
 
@@ -79,6 +79,6 @@ public class VRFlightController : MonoBehaviour
 	}
 
 	public float GetCurrentSpeed() => _currentSpeed;
-	public float GetMinSpeed() => _minSpeed;
-	public float GetTopSpeed() => _topSpeed;
+	public float GetMinSpeed() => minSpeed;
+	public float GetTopSpeed() => topSpeed;
 }

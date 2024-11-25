@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 302300125043196121}
   - component: {fileID: 2386417860079385837}
+  - component: {fileID: 3602345439472005358}
+  - component: {fileID: 4638774365890257982}
   m_Layer: 0
   m_Name: StarDestroyer
   m_TagString: Untagged
@@ -73,6 +75,41 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1371429971949864052}
   m_Enabled: 1
+--- !u!64 &3602345439472005358
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643088389118214914}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -440297079681900044, guid: 52dbfd19107324ae389005bd5bfd068f, type: 3}
+--- !u!114 &4638774365890257982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643088389118214914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ebec89d596943a9aea0596fd0e3f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 5538291158267474479, guid: 68f5054818d214ab69c22d53dccf6f34, type: 3}
 --- !u!1001 &869400661765734424
 PrefabInstance:
   m_ObjectHideFlags: 0

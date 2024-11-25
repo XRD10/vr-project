@@ -377,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engineSound: {fileID: 406253940}
   engineAudioController: {fileID: 872471838}
+  playerLaser: {fileID: 0}
 --- !u!4 &674750802
 Transform:
   m_ObjectHideFlags: 0
