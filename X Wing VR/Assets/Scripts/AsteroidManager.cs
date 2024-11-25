@@ -15,6 +15,11 @@ public class AsteroidManager : MonoBehaviour
         if (explosion != null)
         {
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage(1);
+            }
 
             Destroy(explosionInstance, 2f);
         }
