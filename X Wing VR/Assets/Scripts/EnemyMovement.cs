@@ -367,6 +367,11 @@ public class EnemyMovement : MonoBehaviour
             EnemyPool.Instance.ReturnEnemy(gameObject);
         }
 
+        if (collision.gameObject.CompareTag("StarDestroyer"))
+        { 
+            EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.Die();
+        }
     }
 
 }

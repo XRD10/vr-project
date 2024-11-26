@@ -14,18 +14,18 @@ public class PlayerHealth : MonoBehaviour
         spawnLocation = gameObject.transform.position;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, int waitTillReset = 3)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            StartCoroutine(Reset());
+            StartCoroutine(ResetPlayer(waitTillReset));
         }
     }
 
-    private IEnumerator Reset()
+    private IEnumerator ResetPlayer(int waitingTime)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(waitingTime);
         gameObject.transform.position = spawnLocation;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         currentHealth = maxHealth;
