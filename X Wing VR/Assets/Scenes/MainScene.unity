@@ -3336,6 +3336,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2386417860079385837, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.20377482
+      objectReference: {fileID: 0}
     - target: {fileID: 3602345439472005358, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
       propertyPath: m_Convex
       value: 0
