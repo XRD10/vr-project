@@ -2280,6 +2280,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1842435063}
     - target: {fileID: 6592923276943709466, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: rollDetailer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592923276943709466, guid: ca53d27da022d44a483f787c6b920000, type: 3}
+      propertyPath: pitchDetailer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592923276943709466, guid: ca53d27da022d44a483f787c6b920000, type: 3}
       propertyPath: audioController
       value: 
       objectReference: {fileID: 674750801}
@@ -3793,6 +3801,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643088389118214914, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
       propertyPath: m_Name
+      value: StarDestroyer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643088389118214914, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}
+      propertyPath: m_TagString
       value: StarDestroyer
       objectReference: {fileID: 0}
     - target: {fileID: 4831019401231008691, guid: 7ec769d8b7eaf4cd488384f4fd5f48f0, type: 3}

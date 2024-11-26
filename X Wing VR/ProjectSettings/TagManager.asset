@@ -9,6 +9,8 @@ TagManager:
   - HomeBase
   - PatrolPoints
   - Asteroid
+  - SpeedDisplay
+  - StarDestroyer
   layers:
   - Default
   - TransparentFX
