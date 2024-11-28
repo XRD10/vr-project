@@ -25,3 +25,6 @@ Tracks the XR controllers as inputs and has the **Direct Interactable** componen
 #### [Valem Tutorials](https://www.youtube.com/@ValemTutorials):
 
 - Lets make a VR game unity package (`XRJoystick`, `XRSlider`, and hands visuals)
+
+# YouTube Demo
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=js29IL71DP4)
